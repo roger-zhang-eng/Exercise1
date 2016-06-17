@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FoldingCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ISO8601DateFormatterValueTransformer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,42 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>01933D295F0A953632A4EEC096CB73CE</key>
+		<key>072EF18B234337098DD20A43B240E793</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>058A06A315E859959665C167020EB1E6</key>
+		<key>447AF36C302759BFC4275A34D53E0E38</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>353D1A7AA4A7EF27312BA989C5A9CBEA</key>
+		<key>4C73E7BC5862A4FCE286711B65E5F460</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>50AA5739307E002DFE8DC76483F0B9A7</key>
+		<key>5111AF6F9C0EE71B844A8D1C3420F264</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A33813BF5DAA99F8133F426DDE9A1089</key>
+		<key>80322FEEB815DE96EB16D50F8FAC0947</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C1D74BC3EC91E61C5D74B4DA8808F7F7</key>
+		<key>9ACD1165E08FF0B1C00C6731D1ABA02E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E57F9A2C18B1A1410C17693B38970B6A</key>
+		<key>A3123CBFAEA8F868A30B68D763CE37E0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EBB70B39B24BFA8A41C2439A78FAC47B</key>
+		<key>A6164F215BFFBBC0B0820A8E76B0164F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BE323F378A657906D4041AB852D67A4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

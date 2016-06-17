@@ -22,6 +22,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>By accessing your location service, this application could find Cafe shops nearby your current position.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This Exercise Application need detect your location information to search nearby Cafe shops.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile~iphone</key>

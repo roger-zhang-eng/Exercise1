@@ -7,15 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22DFD2401D12D94000CC255C /* CafeOverAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD23F1D12D94000CC255C /* CafeOverAllViewController.swift */; };
+		22DFD2461D12DA9800CC255C /* CafeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD2451D12DA9800CC255C /* CafeTableViewCell.swift */; };
+		22DFD2481D12DBF600CC255C /* CafeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD2471D12DBF500CC255C /* CafeListViewModel.swift */; };
+		22DFD24A1D12DCA000CC255C /* CafeMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD2491D12DCA000CC255C /* CafeMapViewModel.swift */; };
+		22DFD24C1D12DD6300CC255C /* FSCafeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD24B1D12DD6300CC255C /* FSCafeData.swift */; };
+		22DFD2511D13F21D00CC255C /* CafeShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD2501D13F21D00CC255C /* CafeShopItem.swift */; };
+		22DFD2531D13F84300CC255C /* TableViewBindingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD2521D13F84300CC255C /* TableViewBindingHelper.swift */; };
+		22DFD2551D14075200CC255C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD2541D14075200CC255C /* Utilities.swift */; };
+		22DFD2561D14103E00CC255C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E495071D11A49F006C026F /* CoreLocation.framework */; };
+		22DFD2591D14105A00CC255C /* Pods_Exercise1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72DD44DEEAAD6648B1C7F11 /* Pods_Exercise1.framework */; };
+		22DFD25B1D14112600CC255C /* Pods_Exercise1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72DD44DEEAAD6648B1C7F11 /* Pods_Exercise1.framework */; };
+		22DFD25C1D14112600CC255C /* Pods_Exercise1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72DD44DEEAAD6648B1C7F11 /* Pods_Exercise1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		22DFD25F1D14324500CC255C /* ShopList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD25E1D14324500CC255C /* ShopList.swift */; };
 		22E494DA1D1199FE006C026F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E494D91D1199FE006C026F /* AppDelegate.swift */; };
 		22E494DF1D1199FE006C026F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E494DD1D1199FE006C026F /* Main.storyboard */; };
 		22E494E11D1199FE006C026F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22E494E01D1199FE006C026F /* Assets.xcassets */; };
 		22E494E41D1199FE006C026F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E494E21D1199FE006C026F /* LaunchScreen.storyboard */; };
 		22E494EF1D1199FE006C026F /* Exercise1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E494EE1D1199FE006C026F /* Exercise1Tests.swift */; };
 		22E494FA1D1199FE006C026F /* Exercise1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E494F91D1199FE006C026F /* Exercise1UITests.swift */; };
-		22E495081D11A49F006C026F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E495071D11A49F006C026F /* CoreLocation.framework */; };
 		22E4950D1D11A633006C026F /* CafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4950C1D11A633006C026F /* CafeViewController.swift */; };
-		852A2486859015D19BBA9695 /* Pods_Exercise1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72DD44DEEAAD6648B1C7F11 /* Pods_Exercise1.framework */; };
+		22E495101D12BDE6006C026F /* FSLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4950F1D12BDE6006C026F /* FSLocation.swift */; };
+		22E495121D12BE2C006C026F /* FSStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E495111D12BE2C006C026F /* FSStats.swift */; };
+		22E495141D12BE5A006C026F /* FSVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E495131D12BE5A006C026F /* FSVenue.swift */; };
+		22E495161D12BE8A006C026F /* FSContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E495151D12BE8A006C026F /* FSContact.swift */; };
+		22E4951B1D12BFC4006C026F /* UserPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4951A1D12BFC4006C026F /* UserPosition.swift */; };
+		22E4951D1D12C123006C026F /* CurrentSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4951C1D12C123006C026F /* CurrentSpot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +52,30 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		22DFD25D1D14112600CC255C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				22DFD25C1D14112600CC255C /* Pods_Exercise1.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		22DFD23F1D12D94000CC255C /* CafeOverAllViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CafeOverAllViewController.swift; path = View/CafeOverAllViewController.swift; sourceTree = "<group>"; };
+		22DFD2451D12DA9800CC255C /* CafeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CafeTableViewCell.swift; path = View/CafeTableViewCell.swift; sourceTree = "<group>"; };
+		22DFD2471D12DBF500CC255C /* CafeListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CafeListViewModel.swift; path = ViewModel/CafeListViewModel.swift; sourceTree = "<group>"; };
+		22DFD2491D12DCA000CC255C /* CafeMapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CafeMapViewModel.swift; path = ViewModel/CafeMapViewModel.swift; sourceTree = "<group>"; };
+		22DFD24B1D12DD6300CC255C /* FSCafeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FSCafeData.swift; path = Model/FSCafeData.swift; sourceTree = "<group>"; };
+		22DFD2501D13F21D00CC255C /* CafeShopItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CafeShopItem.swift; path = Model/CafeShopItem.swift; sourceTree = "<group>"; };
+		22DFD2521D13F84300CC255C /* TableViewBindingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewBindingHelper.swift; path = Utils/TableViewBindingHelper.swift; sourceTree = "<group>"; };
+		22DFD2541D14075200CC255C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = Utils/Utilities.swift; sourceTree = "<group>"; };
+		22DFD25E1D14324500CC255C /* ShopList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShopList.swift; path = Model/ShopList.swift; sourceTree = "<group>"; };
 		22E494D61D1199FE006C026F /* Exercise1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exercise1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E494D91D1199FE006C026F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22E494DE1D1199FE006C026F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -50,6 +90,13 @@
 		22E494FB1D1199FE006C026F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22E495071D11A49F006C026F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		22E4950C1D11A633006C026F /* CafeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CafeViewController.swift; path = View/CafeViewController.swift; sourceTree = "<group>"; };
+		22E4950F1D12BDE6006C026F /* FSLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FSLocation.swift; path = Model/FSLocation.swift; sourceTree = "<group>"; };
+		22E495111D12BE2C006C026F /* FSStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FSStats.swift; path = Model/FSStats.swift; sourceTree = "<group>"; };
+		22E495131D12BE5A006C026F /* FSVenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FSVenue.swift; path = Model/FSVenue.swift; sourceTree = "<group>"; };
+		22E495151D12BE8A006C026F /* FSContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FSContact.swift; path = Model/FSContact.swift; sourceTree = "<group>"; };
+		22E495171D12BF3D006C026F /* Exercise1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Exercise1-Bridging-Header.h"; sourceTree = "<group>"; };
+		22E4951A1D12BFC4006C026F /* UserPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPosition.swift; path = Model/UserPosition.swift; sourceTree = "<group>"; };
+		22E4951C1D12C123006C026F /* CurrentSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentSpot.swift; path = Model/CurrentSpot.swift; sourceTree = "<group>"; };
 		35BA30C8F00A6D0CD3D9CE2D /* Pods-Exercise1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Exercise1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Exercise1/Pods-Exercise1.debug.xcconfig"; sourceTree = "<group>"; };
 		91EB892E670CB8D6FD5D21CB /* Pods-Exercise1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Exercise1.release.xcconfig"; path = "Pods/Target Support Files/Pods-Exercise1/Pods-Exercise1.release.xcconfig"; sourceTree = "<group>"; };
 		C72DD44DEEAAD6648B1C7F11 /* Pods_Exercise1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Exercise1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,8 +107,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22E495081D11A49F006C026F /* CoreLocation.framework in Frameworks */,
-				852A2486859015D19BBA9695 /* Pods_Exercise1.framework in Frameworks */,
+				22DFD25B1D14112600CC255C /* Pods_Exercise1.framework in Frameworks */,
+				22DFD2561D14103E00CC255C /* CoreLocation.framework in Frameworks */,
+				22DFD2591D14105A00CC255C /* Pods_Exercise1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +130,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22DFD24F1D13F1DF00CC255C /* WebServiceModel */ = {
+			isa = PBXGroup;
+			children = (
+				22E4950F1D12BDE6006C026F /* FSLocation.swift */,
+				22E495111D12BE2C006C026F /* FSStats.swift */,
+				22E495131D12BE5A006C026F /* FSVenue.swift */,
+				22E495151D12BE8A006C026F /* FSContact.swift */,
+			);
+			name = WebServiceModel;
+			sourceTree = "<group>";
+		};
 		22E494CD1D1199FE006C026F = {
 			isa = PBXGroup;
 			children = (
@@ -107,11 +166,12 @@
 		22E494D81D1199FE006C026F /* Exercise1 */ = {
 			isa = PBXGroup;
 			children = (
+				22E494D91D1199FE006C026F /* AppDelegate.swift */,
+				22E495171D12BF3D006C026F /* Exercise1-Bridging-Header.h */,
 				22E495091D11A5A4006C026F /* Model */,
 				22E4950A1D11A5AB006C026F /* View */,
 				22E4950B1D11A5B1006C026F /* View Model */,
 				22E4950E1D11A677006C026F /* Utils */,
-				22E494D91D1199FE006C026F /* AppDelegate.swift */,
 				22E494DD1D1199FE006C026F /* Main.storyboard */,
 				22E494E21D1199FE006C026F /* LaunchScreen.storyboard */,
 				22E494E01D1199FE006C026F /* Assets.xcassets */,
@@ -141,6 +201,12 @@
 		22E495091D11A5A4006C026F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				22DFD24F1D13F1DF00CC255C /* WebServiceModel */,
+				22E4951C1D12C123006C026F /* CurrentSpot.swift */,
+				22DFD25E1D14324500CC255C /* ShopList.swift */,
+				22DFD2501D13F21D00CC255C /* CafeShopItem.swift */,
+				22DFD24B1D12DD6300CC255C /* FSCafeData.swift */,
+				22E4951A1D12BFC4006C026F /* UserPosition.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -149,6 +215,8 @@
 			isa = PBXGroup;
 			children = (
 				22E4950C1D11A633006C026F /* CafeViewController.swift */,
+				22DFD23F1D12D94000CC255C /* CafeOverAllViewController.swift */,
+				22DFD2451D12DA9800CC255C /* CafeTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -156,6 +224,8 @@
 		22E4950B1D11A5B1006C026F /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				22DFD2471D12DBF500CC255C /* CafeListViewModel.swift */,
+				22DFD2491D12DCA000CC255C /* CafeMapViewModel.swift */,
 			);
 			name = "View Model";
 			sourceTree = "<group>";
@@ -163,6 +233,8 @@
 		22E4950E1D11A677006C026F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				22DFD2521D13F84300CC255C /* TableViewBindingHelper.swift */,
+				22DFD2541D14075200CC255C /* Utilities.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -198,6 +270,7 @@
 				22E494D41D1199FE006C026F /* Resources */,
 				05799D766C26461B4E8BCD3F /* Embed Pods Frameworks */,
 				D034D27C0D33DF2FBAAE392A /* Copy Pods Resources */,
+				22DFD25D1D14112600CC255C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -367,8 +440,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22E495121D12BE2C006C026F /* FSStats.swift in Sources */,
+				22DFD2481D12DBF600CC255C /* CafeListViewModel.swift in Sources */,
+				22DFD24A1D12DCA000CC255C /* CafeMapViewModel.swift in Sources */,
+				22E4951B1D12BFC4006C026F /* UserPosition.swift in Sources */,
+				22DFD2531D13F84300CC255C /* TableViewBindingHelper.swift in Sources */,
+				22DFD2511D13F21D00CC255C /* CafeShopItem.swift in Sources */,
 				22E494DA1D1199FE006C026F /* AppDelegate.swift in Sources */,
+				22DFD2461D12DA9800CC255C /* CafeTableViewCell.swift in Sources */,
+				22DFD2401D12D94000CC255C /* CafeOverAllViewController.swift in Sources */,
+				22DFD2551D14075200CC255C /* Utilities.swift in Sources */,
+				22E495101D12BDE6006C026F /* FSLocation.swift in Sources */,
 				22E4950D1D11A633006C026F /* CafeViewController.swift in Sources */,
+				22E4951D1D12C123006C026F /* CurrentSpot.swift in Sources */,
+				22DFD24C1D12DD6300CC255C /* FSCafeData.swift in Sources */,
+				22DFD25F1D14324500CC255C /* ShopList.swift in Sources */,
+				22E495141D12BE5A006C026F /* FSVenue.swift in Sources */,
+				22E495161D12BE8A006C026F /* FSContact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +552,8 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -502,6 +592,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -511,10 +603,28 @@
 			baseConfigurationReference = 35BA30C8F00A6D0CD3D9CE2D /* Pods-Exercise1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PODS_ROOT)/Headers/Public\"",
+					"\"$(PODS_ROOT)/Headers/Public/RestKit\"",
+					"\"$(PODS_ROOT)/Headers/Public/RestKit/Network\"",
+					"\"$(PODS_ROOT)/Headers/Public/RestKit/CoreData\"",
+					"\"$(PODS_ROOT)/Headers/Public/RestKit/Support\"",
+					"\"$(PODS_ROOT)/Headers/Public/RestKit/ObjectMapping\"",
+					"\"${PODS_ROOT}/Headers/Public/RKValueTransformers\"",
+					"\"${PODS_ROOT}/Headers/Public/ISO8601DateFormatterValueTransformer\"",
+					"\"${PODS_ROOT}/Headers/Public/TransitionKit\"",
+					"\"${PODS_ROOT}/Headers/Public/SOCKit\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+				);
 				INFOPLIST_FILE = Exercise1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = roger.com.Exercise1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Exercise1/Exercise1-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -523,10 +633,27 @@
 			baseConfigurationReference = 91EB892E670CB8D6FD5D21CB /* Pods-Exercise1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PODS_ROOT)/Headers/Public\"",
+					"\"$(PODS_ROOT)/Headers/Public/RestKit\"",
+					"\"$(PODS_ROOT)/Headers/Public/RestKit/Network\"",
+					"\"$(PODS_ROOT)/Headers/Public/RestKit/CoreData\"",
+					"\"$(PODS_ROOT)/Headers/Public/RestKit/Support\"",
+					"\"$(PODS_ROOT)/Headers/Public/RestKit/ObjectMapping\"",
+					"\"${PODS_ROOT}/Headers/Public/RKValueTransformers\"",
+					"\"${PODS_ROOT}/Headers/Public/ISO8601DateFormatterValueTransformer\"",
+					"\"${PODS_ROOT}/Headers/Public/TransitionKit\"",
+					"\"${PODS_ROOT}/Headers/Public/SOCKit\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+				);
 				INFOPLIST_FILE = Exercise1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = roger.com.Exercise1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Exercise1/Exercise1-Bridging-Header.h";
 			};
 			name = Release;
 		};

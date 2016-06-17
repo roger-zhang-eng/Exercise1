@@ -14,16 +14,86 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jwt-Eq-yQB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jwt-Eq-yQB" secondAttribute="bottom" id="7SJ-0w-qV7"/>
+                            <constraint firstItem="jwt-Eq-yQB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9cr-p9-BkY"/>
+                            <constraint firstAttribute="trailing" secondItem="jwt-Eq-yQB" secondAttribute="trailing" id="VhC-OI-kuh"/>
+                            <constraint firstItem="jwt-Eq-yQB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="dgf-To-9Yj"/>
+                            <constraint firstItem="jwt-Eq-yQB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="fSG-sL-1ev"/>
+                            <constraint firstAttribute="bottom" secondItem="jwt-Eq-yQB" secondAttribute="bottom" id="iAS-9h-TQv"/>
+                            <constraint firstItem="jwt-Eq-yQB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pju-C1-THe"/>
+                            <constraint firstAttribute="trailing" secondItem="jwt-Eq-yQB" secondAttribute="trailing" id="sc0-gn-a3R"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="dgf-To-9Yj"/>
+                                <exclude reference="iAS-9h-TQv"/>
+                                <exclude reference="pju-C1-THe"/>
+                                <exclude reference="sc0-gn-a3R"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="xaP-P5-r50"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="xaP-P5-r50">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="43d-zc-rZ2">
+                            <connections>
+                                <segue destination="8vN-0b-iM0" kind="push" id="UJY-wo-2p0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="mapButton" destination="43d-zc-rZ2" id="M8f-1M-qyl"/>
+                        <outlet property="tableView" destination="jwt-Eq-yQB" id="uJe-mW-kVB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1116.5" y="429.5"/>
+        </scene>
+        <!--Cafe Over All View Controller-->
+        <scene sceneID="HWi-4I-duh">
+            <objects>
+                <viewController id="8vN-0b-iM0" customClass="CafeOverAllViewController" customModule="Exercise1" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l8A-YA-pkv"/>
+                        <viewControllerLayoutGuide type="bottom" id="Je8-jL-cNw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bLR-mp-MWH">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tnD-Uv-60Y">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tnD-Uv-60Y" secondAttribute="trailing" id="2De-oy-URD"/>
+                            <constraint firstItem="tnD-Uv-60Y" firstAttribute="top" secondItem="l8A-YA-pkv" secondAttribute="bottom" id="FIy-4G-b47"/>
+                            <constraint firstAttribute="bottom" secondItem="tnD-Uv-60Y" secondAttribute="bottom" id="d8C-gB-nXH"/>
+                            <constraint firstItem="tnD-Uv-60Y" firstAttribute="leading" secondItem="bLR-mp-MWH" secondAttribute="leading" id="nUn-Ms-M4r"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="fLP-Oj-YBE"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="mapView" destination="tnD-Uv-60Y" id="JdW-1O-Sky"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bz0-kX-rdK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1565.5" y="429.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZCh-VV-wk8">
