@@ -17,9 +17,57 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jwt-Eq-yQB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="575" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jwt-Eq-yQB">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CafeViewCell" rowHeight="575" id="XY8-Gy-fGs" userLabel="CafeViewCell" customClass="CafeTableViewCell" customModule="Exercise1" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="575"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XY8-Gy-fGs" id="9QZ-dG-jT8">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zko-36-xqg" userLabel="Foreground" customClass="RotatedView" customModule="FoldingCell">
+                                                    <rect key="frame" x="0.0" y="5" width="375" height="50"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="5BK-Kc-NDd"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FiD-cW-Ull" userLabel="Container">
+                                                    <rect key="frame" x="0.0" y="60" width="375" height="450"/>
+                                                    <color key="backgroundColor" red="0.2627394764" green="0.82787955530000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="450" id="jCW-lI-4iW"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zko-36-xqg" firstAttribute="top" secondItem="9QZ-dG-jT8" secondAttribute="top" constant="5" identifier="foregroundViewTop" id="ATa-VI-XPk"/>
+                                                <constraint firstAttribute="trailing" secondItem="FiD-cW-Ull" secondAttribute="trailing" id="VE6-ye-HU0"/>
+                                                <constraint firstItem="FiD-cW-Ull" firstAttribute="leading" secondItem="9QZ-dG-jT8" secondAttribute="leading" id="XVs-Qg-4UJ"/>
+                                                <constraint firstItem="FiD-cW-Ull" firstAttribute="top" secondItem="9QZ-dG-jT8" secondAttribute="top" constant="60" identifier="containerViewTop" id="bee-xO-Bku"/>
+                                                <constraint firstAttribute="trailing" secondItem="zko-36-xqg" secondAttribute="trailing" id="oER-mg-rr3"/>
+                                                <constraint firstItem="zko-36-xqg" firstAttribute="leading" secondItem="9QZ-dG-jT8" secondAttribute="leading" id="rbx-to-kkC"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="itemCount">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="backViewColor">
+                                                <color key="value" red="0.93732926849999998" green="0.99761284719999999" blue="0.7378924791" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="containerView" destination="FiD-cW-Ull" id="W6J-C6-L8v"/>
+                                            <outlet property="containerViewTop" destination="bee-xO-Bku" id="Vjf-hV-s37"/>
+                                            <outlet property="foregroundView" destination="zko-36-xqg" id="95f-pT-SKK"/>
+                                            <outlet property="foregroundViewTop" destination="ATa-VI-XPk" id="994-w5-qMF"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

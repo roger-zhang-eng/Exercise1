@@ -34,7 +34,7 @@ class CafeTableViewCell: FoldingCell {
     
     override func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval {
         
-        let durations = [0.26, 0.2, 0.2]
+        let durations = [0.16, 0.1, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1, 0.1, 0.2, 0.2]
         return durations[itemIndex]
     }
     

@@ -17,9 +17,9 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
     private let cafeListViewModel: CafeListViewModel
 
     //Cafe TableViewCell variables
-    let cellIndentifier = "CafeCell"
-    let kCloseCellHeight: CGFloat = 50
-    let kOpenCellHeight: CGFloat = 470
+    let cellIndentifier = "CafeViewCell"
+    let kCloseCellHeight: CGFloat = 54
+    let kOpenCellHeight: CGFloat = 460
     var cellHeights = [CGFloat]()
     var kCellCount = 0
     var data : [CafeShopItem]!
@@ -28,10 +28,6 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
 
         cafeListViewModel = viewModel
         cafeTableView = tableView
-        
-        //Register nib View as TableViewCell
-        let nib = UINib(nibName: "CafeTableViewCell", bundle: nil)
-        cafeTableView.registerNib(nib, forCellReuseIdentifier: cellIndentifier)
         
         super.init()
         
@@ -52,7 +48,7 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
         for _ in 1...self.kCellCount {
             cellHeights.append(kCloseCellHeight)
         }
-       // self.cafeTableView.reloadData()
+        self.cafeTableView.reloadData()
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -67,7 +63,7 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIndentifier, forIndexPath: indexPath) as! CafeTableViewCell
             let item = self.data[indexPath.row]
             let distanceText = self.getDistanceText(item.location!.distance!.intValue)
-            cell.updateForegroundView(item.name!, distance: distanceText)
+            //cell.updateForegroundView(item.name!, distance: distanceText)
             return cell
         }
 
