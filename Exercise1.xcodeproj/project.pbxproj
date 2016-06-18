@@ -20,6 +20,8 @@
 		22DFD25B1D14112600CC255C /* Pods_Exercise1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72DD44DEEAAD6648B1C7F11 /* Pods_Exercise1.framework */; };
 		22DFD25C1D14112600CC255C /* Pods_Exercise1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72DD44DEEAAD6648B1C7F11 /* Pods_Exercise1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		22DFD25F1D14324500CC255C /* ShopList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD25E1D14324500CC255C /* ShopList.swift */; };
+		22DFD2611D14B5A400CC255C /* MapViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD2601D14B5A400CC255C /* MapViewHelper.swift */; };
+		22DFD2651D152F9700CC255C /* ShopMapViewInst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD2641D152F9700CC255C /* ShopMapViewInst.swift */; };
 		22E494DA1D1199FE006C026F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E494D91D1199FE006C026F /* AppDelegate.swift */; };
 		22E494DF1D1199FE006C026F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E494DD1D1199FE006C026F /* Main.storyboard */; };
 		22E494E11D1199FE006C026F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22E494E01D1199FE006C026F /* Assets.xcassets */; };
@@ -76,6 +78,8 @@
 		22DFD2521D13F84300CC255C /* TableViewBindingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewBindingHelper.swift; path = Utils/TableViewBindingHelper.swift; sourceTree = "<group>"; };
 		22DFD2541D14075200CC255C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = Utils/Utilities.swift; sourceTree = "<group>"; };
 		22DFD25E1D14324500CC255C /* ShopList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShopList.swift; path = Model/ShopList.swift; sourceTree = "<group>"; };
+		22DFD2601D14B5A400CC255C /* MapViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewHelper.swift; path = Utils/MapViewHelper.swift; sourceTree = "<group>"; };
+		22DFD2641D152F9700CC255C /* ShopMapViewInst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShopMapViewInst.swift; path = Model/ShopMapViewInst.swift; sourceTree = "<group>"; };
 		22E494D61D1199FE006C026F /* Exercise1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exercise1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E494D91D1199FE006C026F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22E494DE1D1199FE006C026F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 			children = (
 				22DFD24F1D13F1DF00CC255C /* WebServiceModel */,
 				22E4951C1D12C123006C026F /* CurrentSpot.swift */,
+				22DFD2641D152F9700CC255C /* ShopMapViewInst.swift */,
 				22DFD25E1D14324500CC255C /* ShopList.swift */,
 				22DFD2501D13F21D00CC255C /* CafeShopItem.swift */,
 				22DFD24B1D12DD6300CC255C /* FSCafeData.swift */,
@@ -215,8 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				22E4950C1D11A633006C026F /* CafeViewController.swift */,
-				22DFD23F1D12D94000CC255C /* CafeOverAllViewController.swift */,
 				22DFD2451D12DA9800CC255C /* CafeTableViewCell.swift */,
+				22DFD23F1D12D94000CC255C /* CafeOverAllViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				22DFD2521D13F84300CC255C /* TableViewBindingHelper.swift */,
+				22DFD2601D14B5A400CC255C /* MapViewHelper.swift */,
 				22DFD2541D14075200CC255C /* Utilities.swift */,
 			);
 			name = Utils;
@@ -449,12 +455,14 @@
 				22E494DA1D1199FE006C026F /* AppDelegate.swift in Sources */,
 				22DFD2461D12DA9800CC255C /* CafeTableViewCell.swift in Sources */,
 				22DFD2401D12D94000CC255C /* CafeOverAllViewController.swift in Sources */,
+				22DFD2651D152F9700CC255C /* ShopMapViewInst.swift in Sources */,
 				22DFD2551D14075200CC255C /* Utilities.swift in Sources */,
 				22E495101D12BDE6006C026F /* FSLocation.swift in Sources */,
 				22E4950D1D11A633006C026F /* CafeViewController.swift in Sources */,
 				22E4951D1D12C123006C026F /* CurrentSpot.swift in Sources */,
 				22DFD24C1D12DD6300CC255C /* FSCafeData.swift in Sources */,
 				22DFD25F1D14324500CC255C /* ShopList.swift in Sources */,
+				22DFD2611D14B5A400CC255C /* MapViewHelper.swift in Sources */,
 				22E495141D12BE5A006C026F /* FSVenue.swift in Sources */,
 				22E495161D12BE8A006C026F /* FSContact.swift in Sources */,
 			);

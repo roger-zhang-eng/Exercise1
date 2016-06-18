@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import CoreLocation
 
 class Utilities {
     
@@ -33,5 +33,5 @@ class Utilities {
     class func getFSCurrentDateString() -> String {
         return Utilities.formatterForFS.stringFromDate(NSDate())
     }
-    
+        
 }

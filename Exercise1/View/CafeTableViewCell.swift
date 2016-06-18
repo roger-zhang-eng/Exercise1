@@ -16,13 +16,12 @@ class CafeTableViewCell: FoldingCell {
     @IBOutlet weak var upDistance: UILabel!
     
     @IBOutlet weak var downCafeName: UILabel!
-    @IBOutlet weak var downRating: UILabel!
+    @IBOutlet weak var downCheckin: UILabel!
     @IBOutlet weak var downCafePhone: UILabel!
     @IBOutlet weak var downAddress: UILabel!
-    @IBOutlet weak var downMapView: MKMapView!
+    @IBOutlet weak var shopMapView: UIImageView!
     
-    var cafeLocationLat: CGFloat?
-    var cafeLocationLng: CGFloat?
+    var cellRowIndex: Int?
     
     override func awakeFromNib() {
         
@@ -30,6 +29,31 @@ class CafeTableViewCell: FoldingCell {
         foregroundView.layer.masksToBounds = true
         
         super.awakeFromNib()
+    }
+    
+    func displayShopMap()  {
+        let shopItem = ShopList.shared.items[cellRowIndex!]
+        if(shopItem.cafeShopMap != nil) {
+            self.shopMapView.image = shopItem.cafeShopMap
+        } else {
+        
+          if(!ShopMapViewInst.shared.initiated) {
+            //let yOffset = self.containerView.frame.size.height - 110
+            let width = self.containerView.frame.size.width - 20
+            let shopMapViewFrame = CGRectMake(10, 110, width, 335)
+            //ShopMapViewInst.shared.shopMapView.frame = shopMapViewFrame
+            
+            ShopMapViewInst.takeSnapshot(self.cellRowIndex!, size: shopMapViewFrame.size, withCallback:{ (image, error) -> Void in
+                if error != nil {
+                    print("In bindMapView, takeSnapshot has problem: \(error?.description)")
+                } else {
+                    shopItem.cafeShopMap = image
+                    self.shopMapView.image = image
+                }
+            })
+            
+          }
+        }
     }
     
     override func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval {
@@ -43,13 +67,13 @@ class CafeTableViewCell: FoldingCell {
         self.upDistance.text = distance
     }
     
-    func updateDownView(cafeName: String, checkinCount: String?, phone: String?, address: String?, lat: CGFloat?, lng: CGFloat?) {
+    func updateDownView(index: Int, cafeName: String, checkinCount: String?, phone: String?, address: String?) {
+        self.cellRowIndex = index
         self.downCafeName.text = cafeName
-        self.downRating.text = checkinCount
+        self.downCheckin.text = checkinCount
         self.downCafePhone.text = phone
         self.downAddress.text = address
-        self.cafeLocationLat = lat
-        self.cafeLocationLng = lng
+
     }
 
 }

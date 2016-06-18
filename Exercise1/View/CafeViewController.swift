@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CafeViewController: UIViewController {
+class CafeViewController: UIViewController, ViewModelForViewControllerDelegate {
     
     private var viewModel: CafeListViewModel!
     private var bindingHelper: TableViewBindingHelper!
@@ -36,6 +36,9 @@ class CafeViewController: UIViewController {
             navigationBar.addSubview(locationTitleLabel)
         }
         
+        
+        
+        self.mapButton.enabled = false
         self.bindViewModel()
     }
 
@@ -47,8 +50,35 @@ class CafeViewController: UIViewController {
 
     func bindViewModel() {
         self.viewModel = CafeListViewModel()
+        self.viewModel.cafeViewControllerDeleage = self
         self.bindingHelper = TableViewBindingHelper(viewModel: self.viewModel, tableView:self.tableView)
         
+    }
+    
+    //Mark: ViewModelForViewControllerDelegate
+    internal func updateMapButton(status: Bool) {
+            self.mapButton.enabled = status
+    }
+    
+    internal func updateNavTitle(name: String) {
+        //dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+            print("updateNavTitle update as \(name)")
+            self.locationTitleLabel.text = name
+            self.locationTitleLabel?.setNeedsDisplay()
+        //})
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if self.locationTitleLabel != nil {
+            self.locationTitleLabel.text = CurrentSpot.shared.cityName
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print("Push Cafe Shop Map")
+        self.locationTitleLabel.text = "Cafe Shops Map"
+        self.locationTitleLabel?.setNeedsDisplay()
     }
 
 }

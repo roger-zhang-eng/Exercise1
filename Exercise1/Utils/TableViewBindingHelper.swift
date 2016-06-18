@@ -23,6 +23,7 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
     var cellHeights = [CGFloat]()
     var kCellCount = 0
     var data : [CafeShopItem]!
+    var lastOpenCellIndexPath: NSIndexPath?
     
     init(viewModel: CafeListViewModel, tableView: UITableView) {
 
@@ -63,7 +64,32 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIndentifier, forIndexPath: indexPath) as! CafeTableViewCell
             let item = self.data[indexPath.row]
             let distanceText = self.getDistanceText(item.location!.distance!.intValue)
-            //cell.updateForegroundView(item.name!, distance: distanceText)
+        
+            cell.updateForegroundView(item.name!, distance: distanceText)
+        
+            var checkinText = "Checkin: "
+            if let checkinNumString = item.stats?.checkinsCount?.stringValue {
+                checkinText += checkinNumString
+            } else {
+                checkinText += "0"
+            }
+        
+            var contactText = "Contact: "
+            if let phoneString = item.contact?.formattedPhone {
+                contactText += phoneString
+            } else {
+                contactText += "Not available"
+            }
+        
+            var addressText = "Address: "
+            if let addressString = item.address {
+                addressText += addressString
+            } else {
+                addressText += "Not available"
+            }
+        
+            cell.updateDownView(indexPath.row, cafeName: item.name!, checkinCount: checkinText, phone: contactText, address: addressText)
+        
             return cell
         }
 
@@ -91,27 +117,51 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
                 if cell.isAnimating() {
                     return
                 }
-                
+            
                 var duration = 0.0
                 if cellHeights[indexPath.row] == kCloseCellHeight { // open cell
+                    
+                    
+                    //Close last Open cell
+                    if lastOpenCellIndexPath != nil {
+                        
+                        let visibleCellIndexes = self.cafeTableView.indexPathsForVisibleRows!
+                        
+                        if visibleCellIndexes.contains(lastOpenCellIndexPath!) {
+                            let lastOpenCell = self.cafeTableView.cellForRowAtIndexPath(lastOpenCellIndexPath!) as! CafeTableViewCell
+                            cellHeights[lastOpenCellIndexPath!.row] = kCloseCellHeight
+                            lastOpenCell.selectedAnimation(false, animated: true, completion: nil)
+                            duration = 0.8
+                        } else {
+                            cellHeights[lastOpenCellIndexPath!.row] = kCloseCellHeight
+                        }
+                    }
+                    lastOpenCellIndexPath = indexPath
+                    
+                    //Bind mapView to display
+                    cell.displayShopMap()
                     cellHeights[indexPath.row] = kOpenCellHeight
                     cell.selectedAnimation(true, animated: true, completion: nil)
                     duration = 0.5
-                } else {                                            // close cell
+                } else {
+                    // close cell
+                    
+                    lastOpenCellIndexPath = nil
+                    
                     cellHeights[indexPath.row] = kCloseCellHeight
                     cell.selectedAnimation(false, animated: true, completion: nil)
                     duration = 0.8
                 }
                 
                 UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
-                    tableView.beginUpdates()
-                    tableView.endUpdates()
+                    self.cafeTableView.beginUpdates()
+                    self.cafeTableView.endUpdates()
                     }, completion: nil)
         }
     
-    func getDistanceText(length:Int32) -> String {
-        return length < 1000 ? "Distance: \(length) m" : NSString(format: "Distance: %.2f km", Float32(length)/1000) as String
-    }
+        func getDistanceText(length:Int32) -> String {
+            return length < 1000 ? "Distance: \(length) m" : NSString(format: "Distance: %.2f km", Float32(length)/1000) as String
+        }
 
 
 }

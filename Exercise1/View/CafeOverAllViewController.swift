@@ -11,5 +11,36 @@ import MapKit
 
 class CafeOverAllViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
+    private var mapViewHelper: MapViewHelper?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        NSLog("View Controller viewDidLoad")
+        // Do any additional setup after loading the view.
+        
+        
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
 
+    override func viewWillAppear(animated: Bool) {
+        self.bindMapView()
+    }
+
+    func bindMapView()  {
+        guard self.mapViewHelper == nil else {
+            
+            return
+        }
+        
+        self.mapViewHelper = MapViewHelper(mapView: self.mapView)
+        self.mapViewHelper?.displayAllTheCafeShops()
+    }
+    
 }

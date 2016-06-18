@@ -14,8 +14,16 @@ class CurrentSpot: NSObject {
     static let shared = CurrentSpot()
     
     var initiated: Bool
-    var geoLocation: CLLocationCoordinate2D?
-    var cityName: String?
+    
+    var cityName: String = "Loading..."
+    
+    var geoLocation: CLLocationCoordinate2D? {
+        didSet {
+            if geoLocation != nil {
+                initiated = true
+            }
+        }
+    }
     
     private override init() {
         self.initiated = false

@@ -9,6 +9,7 @@
 import Foundation
 
 class CafeShopItem: FSVenue {
+    var cafeShopMap: UIImage?
     var address: String? {
         get {
             guard let formattedAddress = super.location?.formattedAddress else {
