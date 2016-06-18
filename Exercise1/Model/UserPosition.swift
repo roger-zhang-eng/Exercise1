@@ -84,7 +84,8 @@ class UserPosition: NSObject, CLLocationManagerDelegate {
             
             if placemarks!.count > 0 {
                 //stop updating location to save battery life
-                self.locationManager.stopUpdatingLocation()
+                //self.locationManager.stopUpdatingLocation()
+                
                 let pm = placemarks![0] as CLPlacemark
                 if pm.locality != nil {
                     locationName = pm.locality!

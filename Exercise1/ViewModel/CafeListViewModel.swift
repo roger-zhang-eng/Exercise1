@@ -34,8 +34,8 @@ public class CafeListViewModel: LocationCaptureDelegate, FSCafeDataDelegate {
     
     func loadCafeShopsData()  {
         
-        //Indicate loading data
-        SVProgressHUD.showWithStatus("Detecting nearby Cafe Shops...")
+        //Indicate current operation
+        SVProgressHUD.showWithStatus("Detecting current location...")
   
         self.userCurrentPosition.starUpdateingLocation()
     }
@@ -46,6 +46,17 @@ public class CafeListViewModel: LocationCaptureDelegate, FSCafeDataDelegate {
         CurrentSpot.shared.geoLocation = position
         
         let centreLocationText = "\(position.latitude.description),\(position.longitude.description)"
+        
+        //Dissmiss indication
+        SVProgressHUD.dismiss()
+        
+        //Clean previous cafe shops list
+        if(ShopList.shared.initiated) {
+            ShopList.shared.resetData()
+        }
+        
+        //Indicate current operation
+        SVProgressHUD.showWithStatus("Detecting nearby Cafe Shops...")
         self.webServiceData.loadVenues(centreLocationText)
     }
     
@@ -59,7 +70,8 @@ public class CafeListViewModel: LocationCaptureDelegate, FSCafeDataDelegate {
     public func updateCafeShotItems() {
         self.cafeListDelegate?.updateCafeTableView()
         self.cafeViewControllerDeleage?.updateMapButton(true)
-        ////Dissmiss indication of loading data
+        
+        //Dissmiss indication
         SVProgressHUD.dismiss()
     }
     

@@ -27,4 +27,8 @@ class ShopList: NSObject {
         items = [CafeShopItem]()
     }
     
+    func resetData() {
+        self.items.removeAll(keepCapacity: false)
+        self.initiated = false
+    }
 }
