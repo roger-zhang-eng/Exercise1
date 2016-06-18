@@ -37,13 +37,12 @@ class CafeTableViewCell: FoldingCell {
             self.shopMapView.image = shopItem.cafeShopMap
         } else {
         
-          if(!ShopMapViewInst.shared.initiated) {
             //let yOffset = self.containerView.frame.size.height - 110
             let width = self.containerView.frame.size.width - 20
             let shopMapViewFrame = CGRectMake(10, 110, width, 335)
             //ShopMapViewInst.shared.shopMapView.frame = shopMapViewFrame
             
-            ShopMapViewInst.takeSnapshot(self.cellRowIndex!, size: shopMapViewFrame.size, withCallback:{ (image, error) -> Void in
+            Utilities.takeSnapshot(self.cellRowIndex!, size: shopMapViewFrame.size, withCallback:{ (image, error) -> Void in
                 if error != nil {
                     print("In bindMapView, takeSnapshot has problem: \(error?.description)")
                 } else {
@@ -51,8 +50,6 @@ class CafeTableViewCell: FoldingCell {
                     self.shopMapView.image = image
                 }
             })
-            
-          }
         }
     }
     

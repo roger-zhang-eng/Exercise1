@@ -26,6 +26,7 @@ class CafeViewController: UIViewController, ViewModelForViewControllerDelegate {
         NSLog("View Controller viewDidLoad")
         // Do any additional setup after loading the view.
 
+        //Add navigation bar title for display Current location city name
         if let navigationBar = self.navigationController?.navigationBar {
             let locationTitleFrameX = navigationBar.frame.width/2 - self.locationTitleWidth/2
             let locationTitleFrame = CGRect(x: locationTitleFrameX, y: 0, width: locationTitleWidth, height: navigationBar.frame.height)
@@ -36,10 +37,10 @@ class CafeViewController: UIViewController, ViewModelForViewControllerDelegate {
             navigationBar.addSubview(locationTitleLabel)
         }
         
-        
-        
-        self.mapButton.enabled = false
+        //Bind viewModel
         self.bindViewModel()
+        //Load tableview data
+        self.loadTableViewData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,6 +54,10 @@ class CafeViewController: UIViewController, ViewModelForViewControllerDelegate {
         self.viewModel.cafeViewControllerDeleage = self
         self.bindingHelper = TableViewBindingHelper(viewModel: self.viewModel, tableView:self.tableView)
         
+    }
+    
+    func loadTableViewData() {
+        self.viewModel.loadCafeShopsData()
     }
     
     //Mark: ViewModelForViewControllerDelegate

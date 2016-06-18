@@ -21,7 +21,6 @@
 		22DFD25C1D14112600CC255C /* Pods_Exercise1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72DD44DEEAAD6648B1C7F11 /* Pods_Exercise1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		22DFD25F1D14324500CC255C /* ShopList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD25E1D14324500CC255C /* ShopList.swift */; };
 		22DFD2611D14B5A400CC255C /* MapViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD2601D14B5A400CC255C /* MapViewHelper.swift */; };
-		22DFD2651D152F9700CC255C /* ShopMapViewInst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD2641D152F9700CC255C /* ShopMapViewInst.swift */; };
 		22E494DA1D1199FE006C026F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E494D91D1199FE006C026F /* AppDelegate.swift */; };
 		22E494DF1D1199FE006C026F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E494DD1D1199FE006C026F /* Main.storyboard */; };
 		22E494E11D1199FE006C026F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22E494E01D1199FE006C026F /* Assets.xcassets */; };
@@ -79,7 +78,6 @@
 		22DFD2541D14075200CC255C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = Utils/Utilities.swift; sourceTree = "<group>"; };
 		22DFD25E1D14324500CC255C /* ShopList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShopList.swift; path = Model/ShopList.swift; sourceTree = "<group>"; };
 		22DFD2601D14B5A400CC255C /* MapViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewHelper.swift; path = Utils/MapViewHelper.swift; sourceTree = "<group>"; };
-		22DFD2641D152F9700CC255C /* ShopMapViewInst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShopMapViewInst.swift; path = Model/ShopMapViewInst.swift; sourceTree = "<group>"; };
 		22E494D61D1199FE006C026F /* Exercise1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exercise1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E494D91D1199FE006C026F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22E494DE1D1199FE006C026F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -170,14 +168,14 @@
 		22E494D81D1199FE006C026F /* Exercise1 */ = {
 			isa = PBXGroup;
 			children = (
-				22E494D91D1199FE006C026F /* AppDelegate.swift */,
-				22E495171D12BF3D006C026F /* Exercise1-Bridging-Header.h */,
 				22E495091D11A5A4006C026F /* Model */,
 				22E4950A1D11A5AB006C026F /* View */,
 				22E4950B1D11A5B1006C026F /* View Model */,
 				22E4950E1D11A677006C026F /* Utils */,
 				22E494DD1D1199FE006C026F /* Main.storyboard */,
 				22E494E21D1199FE006C026F /* LaunchScreen.storyboard */,
+				22E494D91D1199FE006C026F /* AppDelegate.swift */,
+				22E495171D12BF3D006C026F /* Exercise1-Bridging-Header.h */,
 				22E494E01D1199FE006C026F /* Assets.xcassets */,
 				22E494E51D1199FE006C026F /* Info.plist */,
 			);
@@ -207,7 +205,6 @@
 			children = (
 				22DFD24F1D13F1DF00CC255C /* WebServiceModel */,
 				22E4951C1D12C123006C026F /* CurrentSpot.swift */,
-				22DFD2641D152F9700CC255C /* ShopMapViewInst.swift */,
 				22DFD25E1D14324500CC255C /* ShopList.swift */,
 				22DFD2501D13F21D00CC255C /* CafeShopItem.swift */,
 				22DFD24B1D12DD6300CC255C /* FSCafeData.swift */,
@@ -231,6 +228,8 @@
 			children = (
 				22DFD2471D12DBF500CC255C /* CafeListViewModel.swift */,
 				22DFD2491D12DCA000CC255C /* CafeMapViewModel.swift */,
+				22DFD2521D13F84300CC255C /* TableViewBindingHelper.swift */,
+				22DFD2601D14B5A400CC255C /* MapViewHelper.swift */,
 			);
 			name = "View Model";
 			sourceTree = "<group>";
@@ -238,8 +237,6 @@
 		22E4950E1D11A677006C026F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				22DFD2521D13F84300CC255C /* TableViewBindingHelper.swift */,
-				22DFD2601D14B5A400CC255C /* MapViewHelper.swift */,
 				22DFD2541D14075200CC255C /* Utilities.swift */,
 			);
 			name = Utils;
@@ -455,7 +452,6 @@
 				22E494DA1D1199FE006C026F /* AppDelegate.swift in Sources */,
 				22DFD2461D12DA9800CC255C /* CafeTableViewCell.swift in Sources */,
 				22DFD2401D12D94000CC255C /* CafeOverAllViewController.swift in Sources */,
-				22DFD2651D152F9700CC255C /* ShopMapViewInst.swift in Sources */,
 				22DFD2551D14075200CC255C /* Utilities.swift in Sources */,
 				22E495101D12BDE6006C026F /* FSLocation.swift in Sources */,
 				22E4950D1D11A633006C026F /* CafeViewController.swift in Sources */,

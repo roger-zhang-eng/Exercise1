@@ -7,6 +7,7 @@
 //
 import CoreLocation
 import Foundation
+import SVProgressHUD
 
 //TableView Update delegate
 public protocol CafeListViewModelDelegate: class {
@@ -29,9 +30,16 @@ public class CafeListViewModel: LocationCaptureDelegate, FSCafeDataDelegate {
     init() {
         self.userCurrentPosition.locationDelegate = self
         self.webServiceData.cafeDataDelegate = self
+    }
+    
+    func loadCafeShopsData()  {
+        
+        //Indicate loading data
+        SVProgressHUD.showWithStatus("Detecting nearby Cafe Shops...")
+  
         self.userCurrentPosition.starUpdateingLocation()
     }
-
+    
     
     //Mark: LocationCaptureDelegate for update current location data
     public func updateCurrentLocationData(position:CLLocationCoordinate2D) {
@@ -51,6 +59,8 @@ public class CafeListViewModel: LocationCaptureDelegate, FSCafeDataDelegate {
     public func updateCafeShotItems() {
         self.cafeListDelegate?.updateCafeTableView()
         self.cafeViewControllerDeleage?.updateMapButton(true)
+        ////Dissmiss indication of loading data
+        SVProgressHUD.dismiss()
     }
     
 }
