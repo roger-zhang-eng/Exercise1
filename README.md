@@ -14,7 +14,7 @@ Please use pod to install [CocoaPods](https://cocoapods.org) workspace, based on
 
 2) Use Xcode 7.3 to open 'Exercise1.xcworkspace'
 
-3) In the Xcode 7.3, build and run the application. If use Simulator, please use Simulator -> Debug -> Location -> custom Location to set Sydney position, like lat: -33.8734 lng: 151.206894.
+3) In the Xcode 7.3, build and run the application. If select Simulator, please use Simulator -> Debug -> Location -> custom Location to set position, like Sydney lat: -33.8734 lng: 151.206894.
  
 ## Programm execution
 There is one video to demostrate the test. '/Exercise1/demo_video/App_Run_video.mov'
@@ -22,6 +22,7 @@ There is one video to demostrate the test. '/Exercise1/demo_video/App_Run_video.
 ## Basic function
 - Locate user current position by CoreLocation.
 - Get Cafe Shop JSON data by RestKit.
+- Display cafe shop informatioin in TableView, and sorted by distance.
 - Display cafe shop location in the MapView by MapKit.
 
 Note: The map display in TableViewCell is just snapshot. However, the map in 'Cafe Shops Map' View can support user tap and zoom in/out operations.
