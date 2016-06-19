@@ -18,9 +18,6 @@ class CafeOverAllViewController: UIViewController {
         
         NSLog("View Controller viewDidLoad")
         // Do any additional setup after loading the view.
-        
-        
-        
     }
     
     override func didReceiveMemoryWarning() {

@@ -28,6 +28,7 @@ class UserPosition: NSObject, CLLocationManagerDelegate {
     }
     
     func starUpdateingLocation() {
+        print("In UserPosition: starUpdateingLocation")
         locationManager.startUpdatingLocation()
     }
     

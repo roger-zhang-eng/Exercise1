@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Exercise1Tests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>RKValueTransformers.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,7 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>447AF36C302759BFC4275A34D53E0E38</key>
+		<key>19BF2EEE6EF04DA80E34E025F9597DA2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +72,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5111AF6F9C0EE71B844A8D1C3420F264</key>
+		<key>80322FEEB815DE96EB16D50F8FAC0947</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>80322FEEB815DE96EB16D50F8FAC0947</key>
+		<key>9959F341F9E18A1570162C6B0D5EBEDE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,17 +87,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9DFCD83AF7DA668A861C031239D10374</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A3123CBFAEA8F868A30B68D763CE37E0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A6164F215BFFBBC0B0820A8E76B0164F</key>
+		<key>BF38AE6A34BFD4156CF577B310A15343</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BE323F378A657906D4041AB852D67A4E</key>
+		<key>D80BEA80F5E23B539ADE7E76F5AB61AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

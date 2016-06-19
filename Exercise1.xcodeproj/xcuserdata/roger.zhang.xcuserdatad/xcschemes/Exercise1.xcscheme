@@ -37,9 +37,20 @@
                BlueprintName = "Exercise1Tests"
                ReferencedContainer = "container:Exercise1.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "CafeListViewModelTests/testExample()">
+               </Test>
+               <Test
+                  Identifier = "CafeListViewModelTests/testPerformanceExample()">
+               </Test>
+               <Test
+                  Identifier = "Exercise1Tests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "22E494F41D1199FE006C026F"

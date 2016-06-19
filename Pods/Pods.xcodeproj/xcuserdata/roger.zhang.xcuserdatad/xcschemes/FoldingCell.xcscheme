@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52BF17156CDA25900E5285C8"
+               BlueprintIdentifier = "2FEED5F8B312C3113D276AED"
                BuildableName = "FoldingCell.framework"
                BlueprintName = "FoldingCell"
                ReferencedContainer = "container:Pods.xcodeproj">

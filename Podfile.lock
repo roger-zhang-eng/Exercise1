@@ -28,7 +28,7 @@ PODS:
   - TransitionKit (2.2.1)
 
 DEPENDENCIES:
-  - FoldingCell
+  - FoldingCell (~> 1.0.0)
   - RestKit (~> 0.26.0)
   - SVProgressHUD (~> 2.0.3)
 

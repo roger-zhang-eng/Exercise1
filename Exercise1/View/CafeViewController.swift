@@ -16,6 +16,7 @@ class CafeViewController: UIViewController, ViewModelForViewControllerDelegate {
     //Navigation Bar location title variables
     let locationTitleWidth: CGFloat = 100
     var locationTitleLabel: UILabel!
+    let navBarDefaultText = "Loading..."
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapButton: UIBarButtonItem!
@@ -33,7 +34,7 @@ class CafeViewController: UIViewController, ViewModelForViewControllerDelegate {
             locationTitleLabel = UILabel(frame: locationTitleFrame)
             locationTitleLabel.textAlignment = .Center
             locationTitleLabel.numberOfLines = 2
-            locationTitleLabel.text = "Loading..."
+            locationTitleLabel.text = navBarDefaultText
             navigationBar.addSubview(locationTitleLabel)
         }
         
@@ -48,7 +49,7 @@ class CafeViewController: UIViewController, ViewModelForViewControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
+    //Bind ViewModel
     func bindViewModel() {
         self.viewModel = CafeListViewModel()
         self.viewModel.cafeViewControllerDeleage = self
@@ -56,6 +57,7 @@ class CafeViewController: UIViewController, ViewModelForViewControllerDelegate {
         
     }
     
+    //Grab location data and cafe shop data
     func loadTableViewData() {
         self.viewModel.loadCafeShopsData()
     }
