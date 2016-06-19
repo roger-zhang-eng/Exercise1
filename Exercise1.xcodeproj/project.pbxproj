@@ -78,8 +78,6 @@
 		22E494E31D1199FE006C026F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22E494E51D1199FE006C026F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22E494EA1D1199FE006C026F /* Exercise1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Exercise1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		22E494F91D1199FE006C026F /* Exercise1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise1UITests.swift; sourceTree = "<group>"; };
-		22E494FB1D1199FE006C026F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22E495071D11A49F006C026F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		22E4950C1D11A633006C026F /* CafeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CafeViewController.swift; path = View/CafeViewController.swift; sourceTree = "<group>"; };
 		22E4950F1D12BDE6006C026F /* FSLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FSLocation.swift; path = Model/FSLocation.swift; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 			children = (
 				22E494D81D1199FE006C026F /* Exercise1 */,
 				22E494ED1D1199FE006C026F /* Exercise1Tests */,
-				22E494F81D1199FE006C026F /* Exercise1UITests */,
 				22E494D71D1199FE006C026F /* Products */,
 				4DA0ACF686B8FF8E8FEAB7F3 /* Pods */,
 				35B6B6602C7A202807F9F5B5 /* Frameworks */,
@@ -175,15 +172,6 @@
 				22DFD26A1D16124700CC255C /* Test-Bridging-Header.h */,
 			);
 			path = Exercise1Tests;
-			sourceTree = "<group>";
-		};
-		22E494F81D1199FE006C026F /* Exercise1UITests */ = {
-			isa = PBXGroup;
-			children = (
-				22E494F91D1199FE006C026F /* Exercise1UITests.swift */,
-				22E494FB1D1199FE006C026F /* Info.plist */,
-			);
-			path = Exercise1UITests;
 			sourceTree = "<group>";
 		};
 		22E495091D11A5A4006C026F /* Model */ = {
