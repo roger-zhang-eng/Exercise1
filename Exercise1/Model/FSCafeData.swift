@@ -30,11 +30,7 @@ class FSCafeData {
         //Init RestKit
         let objectManager = RKObjectManager(HTTPClient: client)
         
-        //var responseDescriptor: RKResponseDescriptor?
-        
-        //Search mode
-        //if(type == .Search) {
-        
+        //Set decoding data model class
         let venueMapping = RKObjectMapping(forClass: CafeShopItem.self)
         venueMapping.addAttributeMappingsFromArray(["name"])
         
@@ -55,13 +51,7 @@ class FSCafeData {
         
         
         /**
-         Creates and returns a new relationship mapping object describing how to transform a related object representation at `sourceKeyPath` to a new representation at `destinationKeyPath` using the given mapping.
-         
-         The mapping may describe a to-one or a to-many relationship. The appropriate handling of the source representation is deferred until run-time and is determined by performing reflection on the data retrieved from the source object representation by sending a `valueForKeyPath:` message where the key path is the value given in `sourceKeyPath`. If an `NSArray`, `NSSet` or `NSOrderedSet` object is returned, the related object representation is processed as a to-many collection. Otherwise the representation is considered to be a to-one.
-         
-         @param sourceKeyPath A key path from which to retrieve data in the source object representation that is to be mapped as a relationship. If `nil`, then the mapping is performed directly against the parent object representation.
-         @param destinationKeyPath The key path on the destination object to set the object mapped results.
-         @param mapping A mapping object describing how to map the data retrieved from `sourceKeyPath` that is to be set on `destinationKeyPath`.
+         Configure Web Service JSON data mapping relationship
          */
         venueMapping.addPropertyMapping(RKRelationshipMapping(fromKeyPath: "venues", toKeyPath: "venues", withMapping: venueMapping))
         
@@ -69,17 +59,6 @@ class FSCafeData {
         venueMapping.addPropertyMapping(RKRelationshipMapping(fromKeyPath: "location", toKeyPath: "location", withMapping: locationMapping))
         venueMapping.addPropertyMapping(RKRelationshipMapping(fromKeyPath: "stats", toKeyPath: "stats", withMapping: statsMapping))
         
-        // register mappings with the provider using a response descriptor
-        /**
-         Creates and returns a new `RKResponseDescriptor` object.
-         
-         @param mapping The mapping for the response descriptor.
-         @param method The HTTP method(s) for which the mapping is to be used.
-         @param pathPattern A path pattern that matches against URLs for which the mapping should be used.
-         @param keyPath A key path specifying the subset of the parsed response for which the mapping is to be used.
-         @param statusCodes A set of HTTP status codes for which the mapping is to be used.
-         @return A new `RKResponseDescriptor` object.
-         */
         let searchResponseDescriptor = RKResponseDescriptor(mapping: venueMapping, method: RKRequestMethod.GET, pathPattern: "/v2/venues/search", keyPath: "response.venues", statusCodes: NSIndexSet(index: 200))
         
         
@@ -119,8 +98,6 @@ class FSCafeData {
             
             }, failure: { operation, error in
                 NSLog("There is something wrong: \(error.localizedDescription)")
-                let alterView = UIAlertView(title: "Notification", message: "Sorry, currently the service is not avaliable. The server reply message: \(error.localizedDescription)", delegate: self, cancelButtonTitle: "OK")
-                alterView.show()
         })
     }
     

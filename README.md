@@ -30,7 +30,12 @@ Note: The map display in TableViewCell is just snapshot. However, the map in 'Ca
 ## SW architecture
 MVVM design pattern, and source code are designed by swift 2.0
 
-1) 'Model' contains web service raw data model, shop list data model, and user position data model
+1) 'Model' contains:
+- web service raw data model, file name label as FSxxx.swift
+- shop list data model, file name ShopList.swift
+- user position data model, file name UserPosition.swift
+- JSON data getting and decoding, file name FSCafeData.swift 
+
 
 2) 'ViewModel' is responsible for getting model data, and trigger to display TableView and MapView.
 
