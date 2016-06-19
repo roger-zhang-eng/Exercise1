@@ -15,8 +15,10 @@ Please use pod to install [CocoaPods](https://cocoapods.org) workspace, based on
 2) Use Xcode 7.3 to open 'Exercise1.xcworkspace'
 
 3) In the Xcode 7.3, build and run the application. If select Simulator, please use Simulator -> Debug -> Location -> custom Location to set position, like Sydney lat: -33.8734 lng: 151.206894.
+
+Note: Simulator location sometimes is not stable, if App detect long time cannot get location, please manuall change Simulator's Location position, that trick can let App get the location data. 
  
-## Programm execution
+## Programm execution demo
 There is one video to demostrate the test. '/Exercise1/demo_video/App_Run_video.mov'
 
 ## Basic function

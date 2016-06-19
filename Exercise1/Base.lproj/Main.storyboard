@@ -200,7 +200,7 @@
                     <navigationItem key="navigationItem" id="xaP-P5-r50">
                         <barButtonItem key="rightBarButtonItem" image="cafeMap" width="50" id="43d-zc-rZ2">
                             <connections>
-                                <segue destination="8vN-0b-iM0" kind="push" identifier="pushCafeMap" id="UJY-wo-2p0"/>
+                                <segue destination="8vN-0b-iM0" kind="show" identifier="pushCafeMap" id="UJY-wo-2p0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -226,8 +226,8 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tnD-Uv-60Y">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tnD-Uv-60Y">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

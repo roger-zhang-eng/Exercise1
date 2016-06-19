@@ -36,7 +36,7 @@ class CafeListViewModelTests: XCTestCase, CafeListViewModelDelegate, ViewModelFo
         XCTAssert(testData.isEmpty)
     }
     
-    //Test loadCafeShopsData func, which could get based on latitude and longtitude in Simulator to save City name in CurrentSpot.shared.cityName
+    //Test loadCafeShopsData func, which could detect location based on latitude and longtitude in Simulator, then verify the saved City name in CurrentSpot.shared.cityName
     //Currently check 'Sydney' on lat: -33.8734 lng: 151.206894, please set this in Simulator -> Debug -> Location -> custom Location
     func testSydneyLocation() {
         
