@@ -1,17 +1,18 @@
 # Exercise1
 
-`SVProgressHUD` is an exercise programm, running on iOS platform.
+`Exercise1` is an exercise programm, running on iOS platform.
 
 ## Requirements
 - iOS 8.0+
 - Xcode 7.3
+- Pod 0.38.0+
 
 ## Installation Steps
-- Pod 0.38.0, to install [CocoaPods](https://cocoapods.org) workspace, based on Podfile.
+Please use pod to install [CocoaPods](https://cocoapods.org) workspace, based on Podfile.
 
 1) After download source code package, run 'pod install' in the same directory of 'Podfile'
 
-2) User Xcode 7.3 to open 'Exercise1.xcworkspace'
+2) Use Xcode 7.3 to open 'Exercise1.xcworkspace'
 
 3) In the Xcode 7.3, build and run the application. If use Simulator, please use Simulator -> Debug -> Location -> custom Location to set Sydney position, like lat: -33.8734 lng: 151.206894.
  
@@ -22,6 +23,8 @@ There is one video to demostrate the test. '/Exercise1/demo_video/App_Run_video.
 - Locate user current position by CoreLocation.
 - Get Cafe Shop JSON data by RestKit.
 - Display cafe shop location in the MapView by MapKit.
+
+Note: The map display in TableViewCell is just snapshot. However, the map in 'Cafe Shops Map' View can support user tap and zoom in/out operations.
 
 ## SW architecture
 MVVM design pattern, and source code are designed by swift 2.0
@@ -35,8 +38,8 @@ MVVM design pattern, and source code are designed by swift 2.0
 All the message flow are driven by protocol/delegate.
 
 ## Unit Test
-As example, in Exercise1UI, create one ViewModel unit test.
+As example, in Exercise1Tests, create one ViewModel unit test.
 
 1) testEmpty: check the model data initial state.
 
-2) testSydneyLocation: check location name detection.
+2) testSydneyLocation: check location name detection, by XCTestExpectation Asynchronous Testing.
