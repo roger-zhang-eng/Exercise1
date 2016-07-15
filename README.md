@@ -1,6 +1,8 @@
 # Exercise1 
 
 `Exercise1` is an exercise programm, running on iOS platform.
+![Exercise1](https://github.com/roger-zhang-eng/Exercise1/blob/master/demo_video/app.gif)
+## Demo	
 
 ## Requirements
 - iOS 8.0+
