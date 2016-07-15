@@ -18,6 +18,8 @@ class CafeOverAllViewController: UIViewController {
         
         NSLog("View Controller viewDidLoad")
         // Do any additional setup after loading the view.
+        
+        self.navigationItem.title = "Cafe Shops Map"
     }
     
     override func didReceiveMemoryWarning() {

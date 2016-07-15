@@ -239,13 +239,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="fLP-Oj-YBE">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="6Lp-QJ-jJb">
-                            <connections>
-                                <segue destination="cnB-Ls-Irl" kind="show" id="tn7-ZC-e0B"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="fLP-Oj-YBE"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="mapView" destination="tnD-Uv-60Y" id="JdW-1O-Sky"/>
@@ -254,27 +248,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bz0-kX-rdK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1565.5" y="429.5"/>
-        </scene>
-        <!--Say Hey-->
-        <scene sceneID="xsl-61-8On">
-            <objects>
-                <viewController id="cnB-Ls-Irl" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Fd1-89-Gvo"/>
-                        <viewControllerLayoutGuide type="bottom" id="oeS-FS-oEi"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Wh8-6S-cjQ">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Say Hey" id="A18-tE-gRF"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DcA-ds-pK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2081.5" y="429.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZCh-VV-wk8">

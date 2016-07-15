@@ -13,9 +13,6 @@ class CafeViewController: UIViewController, ViewModelForViewControllerDelegate {
     private var viewModel: CafeListViewModel!
     private var bindingHelper: TableViewBindingHelper!
     
-    //Navigation Bar location title variables
-    let locationTitleWidth: CGFloat = 100
-    var locationTitleLabel: UILabel!
     let navBarDefaultText = "Loading..."
     
     @IBOutlet weak var tableView: UITableView!
@@ -27,16 +24,8 @@ class CafeViewController: UIViewController, ViewModelForViewControllerDelegate {
         NSLog("View Controller viewDidLoad")
         // Do any additional setup after loading the view.
 
-        //Add navigation bar title for display Current location city name
-        if let navigationBar = self.navigationController?.navigationBar {
-            let locationTitleFrameX = navigationBar.frame.width/2 - self.locationTitleWidth/2
-            let locationTitleFrame = CGRect(x: locationTitleFrameX, y: 0, width: locationTitleWidth, height: navigationBar.frame.height)
-            locationTitleLabel = UILabel(frame: locationTitleFrame)
-            locationTitleLabel.textAlignment = .Center
-            locationTitleLabel.numberOfLines = 2
-            locationTitleLabel.text = navBarDefaultText
-            navigationBar.addSubview(locationTitleLabel)
-        }
+        //Add navigation bar title for default loading
+        self.navigationItem.title = navBarDefaultText
         
         //Bind viewModel
         self.bindViewModel()
@@ -68,24 +57,16 @@ class CafeViewController: UIViewController, ViewModelForViewControllerDelegate {
     }
     
     internal func updateNavTitle(name: String) {
-        //dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             print("updateNavTitle update as \(name)")
-            self.locationTitleLabel.text = name
-            self.locationTitleLabel?.setNeedsDisplay()
-        //})
-
+            self.navigationItem.title = name
     }
     
     override func viewWillAppear(animated: Bool) {
-        if self.locationTitleLabel != nil {
-            self.locationTitleLabel.text = CurrentSpot.shared.cityName
-        }
+            self.navigationItem.title = CurrentSpot.shared.cityName
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         print("Push Cafe Shop Map")
-        self.locationTitleLabel.text = "Cafe Shops Map"
-        self.locationTitleLabel?.setNeedsDisplay()
     }
 
 }

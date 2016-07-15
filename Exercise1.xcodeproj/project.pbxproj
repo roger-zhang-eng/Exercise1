@@ -15,7 +15,6 @@
 		22DFD2531D13F84300CC255C /* TableViewBindingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD2521D13F84300CC255C /* TableViewBindingHelper.swift */; };
 		22DFD2551D14075200CC255C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD2541D14075200CC255C /* Utilities.swift */; };
 		22DFD2561D14103E00CC255C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E495071D11A49F006C026F /* CoreLocation.framework */; };
-		22DFD2591D14105A00CC255C /* Pods_Exercise1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72DD44DEEAAD6648B1C7F11 /* Pods_Exercise1.framework */; };
 		22DFD25B1D14112600CC255C /* Pods_Exercise1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72DD44DEEAAD6648B1C7F11 /* Pods_Exercise1.framework */; };
 		22DFD25C1D14112600CC255C /* Pods_Exercise1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C72DD44DEEAAD6648B1C7F11 /* Pods_Exercise1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		22DFD25F1D14324500CC255C /* ShopList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD25E1D14324500CC255C /* ShopList.swift */; };
@@ -102,7 +101,6 @@
 			files = (
 				22DFD25B1D14112600CC255C /* Pods_Exercise1.framework in Frameworks */,
 				22DFD2561D14103E00CC255C /* CoreLocation.framework in Frameworks */,
-				22DFD2591D14105A00CC255C /* Pods_Exercise1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
