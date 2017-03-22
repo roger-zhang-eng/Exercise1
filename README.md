@@ -7,8 +7,9 @@
 ## Demo	
 
 ## Requirements
-- iOS 8.0+
-- Xcode 7.3
+- iOS 10.0+
+- Xcode 8.2
+- Swift 3.1
 - Pod 0.38.0+
 
 ## Installation Steps
@@ -16,9 +17,9 @@ Please use pod to install [CocoaPods](https://cocoapods.org) workspace, based on
 
 1) After download source code package, run 'pod install' in the same directory of 'Podfile'
 
-2) Use Xcode 7.3 to open 'Exercise1.xcworkspace'
+2) Use Xcode 8.2 to open 'Exercise1.xcworkspace'
 
-3) In the Xcode 7.3, build and run the application. If select Simulator, please use Simulator -> Debug -> Location -> custom Location to set position, like Sydney lat: -33.8734 lng: 151.206894.
+3) In the Xcode 8.2, build and run the application. If select Simulator, please use Simulator -> Debug -> Location -> custom Location to set position, like Sydney lat: -33.8734 lng: 151.206894.
 
 Note: Simulator location sometimes is not stable, if App detect long time cannot get location, please manuall change Simulator's Location position, that trick can let App get the location data. 
  
