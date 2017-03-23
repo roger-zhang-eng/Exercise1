@@ -35,13 +35,13 @@ There is one video to demostrate the test. '/Exercise1/demo_video/App_Run_video.
 Note: The map display in TableViewCell is just snapshot. However, the map in 'Cafe Shops Map' View can support user tap and zoom in/out operations.
 
 ## SW architecture
-MVVM design pattern, and source code are designed by swift 2.0
+MVVM design pattern, and source code are designed by swift
 
 1) 'Model' contains:
 - web service raw data model, file name label as FSxxx.swift
 - shop list data model, file name ShopList.swift
 - user position data model, file name UserPosition.swift
-- JSON data getting and decoding, file name FSCafeData.swift 
+- JSON data downloading and decoding by Restkit, file name FSCafeData.swift 
 
 
 2) 'ViewModel' is responsible for getting model data, and trigger to display TableView and MapView.
