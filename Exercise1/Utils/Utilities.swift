@@ -43,8 +43,8 @@ class Utilities {
     // Takes a snapshot and calls back with the generated UIImage
     static func takeSnapshot(_ cafeShopIndex: Int,size: CGSize,withCallback: @escaping (UIImage?, NSError?) -> ()) {
         
-        let shopLocation = ShopList.shared.items[cafeShopIndex].location
-        let centrePoint = CLLocationCoordinate2DMake(shopLocation.lat!.doubleValue,shopLocation.lng!.doubleValue)
+        let shopLocation = ShopList.shared.items[cafeShopIndex].venue.location!
+        let centrePoint = CLLocationCoordinate2DMake(shopLocation.lat!,shopLocation.lng!)
         
         let theSpan = MKCoordinateSpanMake(0.01,0.01)
         let theRegion = MKCoordinateRegionMake(centrePoint, theSpan)

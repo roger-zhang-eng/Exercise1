@@ -103,10 +103,10 @@ class UserPosition: NSObject, CLLocationManagerDelegate {
 
     func displayLocationInfo(_ placemark: CLPlacemark) {
         
-            print(placemark.locality != nil ? placemark.locality : "")
-            print(placemark.postalCode != nil  ? placemark.postalCode : "")
-            print(placemark.administrativeArea != nil  ? placemark.administrativeArea : "")
-            print(placemark.country != nil  ? placemark.country : "")
+            print(placemark.locality != nil ? placemark.locality! : "")
+            print(placemark.postalCode != nil  ? placemark.postalCode! : "")
+            print(placemark.administrativeArea != nil  ? placemark.administrativeArea! : "")
+            print(placemark.country != nil  ? placemark.country! : "")
     }
     
 }

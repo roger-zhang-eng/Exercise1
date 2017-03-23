@@ -20,16 +20,15 @@ public protocol ViewModelForViewControllerDelegate: class {
     func updateNavTitle(_ name: String)
 }
 
-open class CafeListViewModel: LocationCaptureDelegate, FSCafeDataDelegate {
-    var userCurrentPosition: UserPosition = UserPosition()
-    //var webServiceData: FSCafeData = FSCafeData()
-    //var currentLocation: CLLocationCoordinate2D?
+class CafeListViewModel: LocationCaptureDelegate {
+    
     weak var cafeListDelegate: CafeListViewModelDelegate?
     weak var cafeViewControllerDeleage: ViewModelForViewControllerDelegate?
     
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     init() {
-        self.userCurrentPosition.locationDelegate = self
-        //self.webServiceData.cafeDataDelegate = self
+        appDelegate.userCurrentPosition.locationDelegate = self
     }
     
     func loadCafeShopsData()  {
@@ -37,12 +36,12 @@ open class CafeListViewModel: LocationCaptureDelegate, FSCafeDataDelegate {
         //Indicate current operation
         SVProgressHUD.show(withStatus: "Detecting current location...")
   
-        self.userCurrentPosition.starUpdateingLocation()
+        appDelegate.userCurrentPosition.starUpdateingLocation()
     }
     
     
     //Mark: LocationCaptureDelegate for update current location data
-    open func updateCurrentLocationData(_ position:CLLocationCoordinate2D) {
+    func updateCurrentLocationData(_ position:CLLocationCoordinate2D) {
         CurrentSpot.shared.geoLocation = position
         
         let centreLocation = UserLocation(lat: position.latitude, long: position.longitude)
@@ -58,19 +57,21 @@ open class CafeListViewModel: LocationCaptureDelegate, FSCafeDataDelegate {
         //Indicate current operation
         SVProgressHUD.show(withStatus: "Detecting nearby Cafe Shops...")
         
-        //self.webServiceData.loadVenues(centreLocationText)
-        
         NetworkModel.sharedInstance.loadVenues(centreLocation, completion: { [unowned self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let results):
+                    print("Successfully get FS data.")
+                    //sort the result array by ascending distance
                     let sortedResults = results.sorted { $0.0.location?.distance ?? 0 < $0.1.location?.distance ?? 0 }
-                    //self.coffeeListUpdateClosure?(CoffeeListViewModel(state: .success(results: sortedResults)))
+                    //transform from [FSVenue] type to [CafeShopItem] type
+                    ShopList.shared.resetData()
                     ShopList.shared.items = sortedResults.map({ CafeShopItem(venue: $0) })
+                    //Make use of this closure to update TableView
                     self.cafeListDelegate?.updateCafeTableView()
                 case .failure(let error):
                     // Propogate and present error to user
-                    print(error)
+                    print("Get FS data failed: \(error)")
                 }
             }
         })

@@ -14,11 +14,11 @@ class CafeShopItem {
     var cafeShopMap: UIImage?
     var address: String? {
         get {
-            guard venue.location?.address != nil else {
-                return nil
-            }
+                guard venue.location?.address != nil else {
+                    return nil
+                }
             
-            return venue.location!.address! + " " + venue.location!.city!
+                return venue.location!.address! + " " + venue.location!.city!
         }
     }
     

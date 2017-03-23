@@ -9,7 +9,7 @@
 #ifndef Test_Bridging_Header_h
 #define Test_Bridging_Header_h
 
-#import <RestKit/RestKit.h>
+//#import <RestKit/RestKit.h>
 //#import <RestKit/Testing.h>
 
 

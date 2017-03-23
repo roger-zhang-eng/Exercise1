@@ -7,11 +7,13 @@
 //
 import UIKit
 import XCTest
+import CoreLocation
 @testable import Exercise1
 
 class CafeListViewModelTests: XCTestCase, CafeListViewModelDelegate, ViewModelForViewControllerDelegate {
 
     var cafeListViewModelTest: CafeListViewModel!
+    var centreLocation: UserLocation?
     
     override func setUp() {
         super.setUp()
@@ -42,18 +44,47 @@ class CafeListViewModelTests: XCTestCase, CafeListViewModelDelegate, ViewModelFo
         
         self.cafeListViewModelTest.loadCafeShopsData()
         
-        let expectation = self.expectationWithDescription("Sydney Location Test")
+        let expectation = self.expectation(description: "Sydney Location Test")
         
         //dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC))
-        let delayTime:Int64 =  Int64(5 * Double(NSEC_PER_SEC))
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delayTime), dispatch_get_main_queue(), {
+        //let delayTime:Int64 =  Int64(5 * Double(NSEC_PER_SEC))
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
             print("print CurrentSpot cityName \(CurrentSpot.shared.cityName)")
             XCTAssertTrue(CurrentSpot.shared.cityName == "Sydney")
             expectation.fulfill()
         })
         
-        self.waitForExpectationsWithTimeout(8.0, handler: nil)
+        self.waitForExpectations(timeout: 8.0, handler: nil)
         
+    }
+    
+    //This test must be after testSydneyLocation(), need get CurrentSpot.shared.geoLocation
+    func testNetworkConnection() {
+        CurrentSpot.shared.geoLocation = CLLocationCoordinate2D(latitude: -33.87339999, longitude: 151.2068940)
+        
+        self.centreLocation = UserLocation(lat: CurrentSpot.shared.geoLocation!.latitude, long: CurrentSpot.shared.geoLocation!.longitude)
+        var connectionResponse = false
+        
+        let expectation = self.expectation(description: "Network connection Test")
+        
+        NetworkModel.sharedInstance.loadVenues(centreLocation!, completion: { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let results):
+                    print("Successfully get FS data.")
+                    XCTAssertTrue(results.count > 0)
+                case .failure(let error):
+                    XCTFail("Get FS data failed: \(error)")
+                }
+                
+                connectionResponse = true
+                expectation.fulfill()
+            }
+        })
+        
+        self.waitForExpectations(timeout: 5.0, handler: nil)
+
     }
     
     
@@ -61,11 +92,11 @@ class CafeListViewModelTests: XCTestCase, CafeListViewModelDelegate, ViewModelFo
         print("In updateCafeTableView.")
     }
     
-    func updateMapButton(status: Bool) {
+    func updateMapButton(_ status: Bool) {
         print("In updateMapButton: status \(status)")
     }
     
-    func updateNavTitle(name: String) {
+    func updateNavTitle(_ name: String) {
         print("In updateNavTitle: name \(name)")
     }
 

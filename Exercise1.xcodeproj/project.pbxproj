@@ -10,7 +10,6 @@
 		22DFD2401D12D94000CC255C /* CafeOverAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD23F1D12D94000CC255C /* CafeOverAllViewController.swift */; };
 		22DFD2461D12DA9800CC255C /* CafeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD2451D12DA9800CC255C /* CafeTableViewCell.swift */; };
 		22DFD2481D12DBF600CC255C /* CafeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD2471D12DBF500CC255C /* CafeListViewModel.swift */; };
-		22DFD24C1D12DD6300CC255C /* FSCafeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD24B1D12DD6300CC255C /* FSCafeData.swift */; };
 		22DFD2511D13F21D00CC255C /* CafeShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD2501D13F21D00CC255C /* CafeShopItem.swift */; };
 		22DFD2531D13F84300CC255C /* TableViewBindingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD2521D13F84300CC255C /* TableViewBindingHelper.swift */; };
 		22DFD2551D14075200CC255C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DFD2541D14075200CC255C /* Utilities.swift */; };
@@ -65,7 +64,6 @@
 		22DFD23F1D12D94000CC255C /* CafeOverAllViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CafeOverAllViewController.swift; path = View/CafeOverAllViewController.swift; sourceTree = "<group>"; };
 		22DFD2451D12DA9800CC255C /* CafeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CafeTableViewCell.swift; path = View/CafeTableViewCell.swift; sourceTree = "<group>"; };
 		22DFD2471D12DBF500CC255C /* CafeListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CafeListViewModel.swift; path = ViewModel/CafeListViewModel.swift; sourceTree = "<group>"; };
-		22DFD24B1D12DD6300CC255C /* FSCafeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FSCafeData.swift; path = Model/FSCafeData.swift; sourceTree = "<group>"; };
 		22DFD2501D13F21D00CC255C /* CafeShopItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CafeShopItem.swift; path = Model/CafeShopItem.swift; sourceTree = "<group>"; };
 		22DFD2521D13F84300CC255C /* TableViewBindingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewBindingHelper.swift; path = Utils/TableViewBindingHelper.swift; sourceTree = "<group>"; };
 		22DFD2541D14075200CC255C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = Utils/Utilities.swift; sourceTree = "<group>"; };
@@ -192,7 +190,6 @@
 				22E4951C1D12C123006C026F /* CurrentSpot.swift */,
 				22DFD25E1D14324500CC255C /* ShopList.swift */,
 				22DFD2501D13F21D00CC255C /* CafeShopItem.swift */,
-				22DFD24B1D12DD6300CC255C /* FSCafeData.swift */,
 				22E4951A1D12BFC4006C026F /* UserPosition.swift */,
 				22E90BE91E82A8C100BC98B4 /* NetworkModel.swift */,
 			);
@@ -454,7 +451,6 @@
 				22E4950D1D11A633006C026F /* CafeViewController.swift in Sources */,
 				22E4951D1D12C123006C026F /* CurrentSpot.swift in Sources */,
 				22E90BEA1E82A8C100BC98B4 /* NetworkModel.swift in Sources */,
-				22DFD24C1D12DD6300CC255C /* FSCafeData.swift in Sources */,
 				22DFD25F1D14324500CC255C /* ShopList.swift in Sources */,
 				22DFD2611D14B5A400CC255C /* MapViewHelper.swift in Sources */,
 				22E495141D12BE5A006C026F /* FSVenue.swift in Sources */,

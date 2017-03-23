@@ -60,7 +60,9 @@ class NetworkModel {
         let urlText = self.url()!.absoluteString
         let headers : [String : String] = [
             "Content-Type": "application/json",
-            "Accept": "application/json",
+            "Accept": "application/json"
+        ]
+        let parameters : [String : String] = [
             "client_id": clientID,
             "client_secret": clientSecret,
             "v": dateText,
@@ -68,8 +70,7 @@ class NetworkModel {
             "ll": location.locationQuery
         ]
         
-        return Alamofire.request(urlText, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
-        
+        return Alamofire.request(urlText, method: .get, parameters: parameters, headers: headers)
     }
     
     func loadVenues(_ position: UserLocation, completion: @escaping (Result<[FSVenue], Error>) -> ()) {
