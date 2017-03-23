@@ -10,7 +10,7 @@
 - iOS 10.0+
 - Xcode 8.2
 - Swift 3.1
-- Pod 0.38.0+
+- Pod 1.2.0
 
 ## Installation Steps
 Please use pod to install [CocoaPods](https://cocoapods.org) workspace, based on Podfile.
@@ -35,13 +35,13 @@ There is one video to demostrate the test. '/Exercise1/demo_video/App_Run_video.
 Note: The map display in TableViewCell is just snapshot. However, the map in 'Cafe Shops Map' View can support user tap and zoom in/out operations.
 
 ## SW architecture
-MVVM design pattern, and source code are designed by swift 2.0
+MVVM design pattern, and source code are designed by swift
 
 1) 'Model' contains:
-- web service raw data model, file name label as FSxxx.swift
+- web service raw data model and decoding pattern, file name label as FSxxx.swift by Gloss library
 - shop list data model, file name ShopList.swift
 - user position data model, file name UserPosition.swift
-- JSON data getting and decoding, file name FSCafeData.swift 
+- JSON data downloading, file name NetworkModel.swift by Alamonfire
 
 
 2) 'ViewModel' is responsible for getting model data, and trigger to display TableView and MapView.
@@ -56,3 +56,5 @@ As example, in Exercise1Tests, create one ViewModel unit test.
 1) testEmpty: check the model data initial state.
 
 2) testSydneyLocation: check location name detection, by XCTestExpectation Asynchronous Testing.
+
+3) testNetworkConnection: check the network API connection, by XCTestExpectation Asynchronous Testing.
