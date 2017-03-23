@@ -5,18 +5,20 @@ platform :ios, '8.0'
 # Uncomment this line if you're using Swift
 use_frameworks!
 
-def common
-    pod 'SVProgressHUD', '~> 2.0.3' # Progress indicator - https://github.com/SVProgressHUD/SVProgressHUD
-    pod 'Alamofire', '4.3.0'
-    pod 'FoldingCell' , '~> 2.0.3'  # TableViewCell foldabal effect  https://github.com/Ramotion/folding-cell
-    pod 'Gloss' , '~> 1.2' #JSON decode, better than SwiftJSON
-end
-
 target 'Exercise1' do
-    common
+
+    pod 'SVProgressHUD', '~> 2.0.3' # Progress indicator - https://github.com/SVProgressHUD/SVProgressHUD
+    pod 'RestKit', '~> 0.27.0'		# Consuming and modeling RESTful web resources - https://github.com/RestKit/RestKit
+    pod 'FoldingCell' , '~> 2.0.3'  # TableViewCell foldabal effect  https://github.com/Ramotion/folding-cell
 end
 
 target 'Exercise1Tests' do
-    common
+    pod 'SVProgressHUD', '~> 2.0.3' # Progress indicator - https://github.com/SVProgressHUD/SVProgressHUD
+    pod 'RestKit', '~> 0.27.0'		# Consuming and modeling RESTful web resources - https://github.com/RestKit/RestKit
+    pod 'FoldingCell' , '~> 2.0.3'  # TableViewCell foldabal effect  https://github.com/Ramotion/folding-cell
 end
+
+#target 'Exercise1UITests' do
+
+#end
 

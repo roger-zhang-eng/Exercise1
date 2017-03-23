@@ -10,7 +10,7 @@
 - iOS 10.0+
 - Xcode 8.2
 - Swift 3.1
-- Pod 0.38.0+
+- Pod 1.2.0
 
 ## Installation Steps
 Please use pod to install [CocoaPods](https://cocoapods.org) workspace, based on Podfile.
@@ -28,7 +28,7 @@ There is one video to demostrate the test. '/Exercise1/demo_video/App_Run_video.
 
 ## Basic function
 - Locate user current position by CoreLocation.
-- Get Cafe Shop JSON data by RestKit.
+- Get Cafe Shop JSON data by RestKit, which handle connection URL and data decode.
 - Display cafe shop informatioin in TableView, and sorted by distance.
 - Display cafe shop location in the MapView by MapKit.
 

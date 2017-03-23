@@ -22,13 +22,13 @@ class ShopList: NSObject {
         }
     }
     
-    private override init() {
+    fileprivate override init() {
         initiated = false
         items = [CafeShopItem]()
     }
     
     func resetData() {
-        self.items.removeAll(keepCapacity: false)
+        self.items.removeAll(keepingCapacity: false)
         self.initiated = false
     }
 }

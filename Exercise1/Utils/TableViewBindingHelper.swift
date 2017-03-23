@@ -13,8 +13,8 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
     
     //MARK: Properties
     
-    private let cafeTableView: UITableView
-    private let cafeListViewModel: CafeListViewModel
+    fileprivate let cafeTableView: UITableView
+    fileprivate let cafeListViewModel: CafeListViewModel
 
     //Cafe TableViewCell variables
     let cellIndentifier = "CafeViewCell"
@@ -23,7 +23,7 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
     var cellHeights = [CGFloat]()
     var kCellCount = 0
     var data : [CafeShopItem]!
-    var lastOpenCellIndexPath: NSIndexPath?
+    var lastOpenCellIndexPath: IndexPath?
     
     init(viewModel: CafeListViewModel, tableView: UITableView) {
 
@@ -38,8 +38,8 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
     }
     
     func cleanData()  {
-        ShopList.shared.items.removeAll(keepCapacity: false)
-        self.cellHeights.removeAll(keepCapacity: false)
+        ShopList.shared.items.removeAll(keepingCapacity: false)
+        self.cellHeights.removeAll(keepingCapacity: false)
         self.kCellCount = 0
     }
     
@@ -52,18 +52,18 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
         self.cafeTableView.reloadData()
     }
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
             return 1
         }
         
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return self.kCellCount
         }
         
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCellWithIdentifier(cellIndentifier, forIndexPath: indexPath) as! CafeTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellIndentifier, for: indexPath) as! CafeTableViewCell
             let item = self.data[indexPath.row]
-            let distanceText = self.getDistanceText(item.location!.distance!.intValue)
+            let distanceText = self.getDistanceText(item.location!.distance!.int32Value)
         
             cell.updateForegroundView(item.name!, distance: distanceText)
         
@@ -93,15 +93,15 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
             return cell
         }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return cellHeights[indexPath.row]
             
         }
         
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
             if cell is FoldingCell {
                 let foldingCell = cell as! FoldingCell
-                foldingCell.backgroundColor = UIColor.clearColor()
+                foldingCell.backgroundColor = UIColor.clear
                 
                 if cellHeights[indexPath.row] == kCloseCellHeight {
                     foldingCell.selectedAnimation(false, animated: false, completion:nil)
@@ -111,8 +111,8 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
             }
         }
         
-        func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-                let cell = tableView.cellForRowAtIndexPath(indexPath) as! CafeTableViewCell
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+                let cell = tableView.cellForRow(at: indexPath) as! CafeTableViewCell
                 
                 if cell.isAnimating() {
                     return
@@ -128,7 +128,7 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
                         let visibleCellIndexes = self.cafeTableView.indexPathsForVisibleRows!
                         
                         if visibleCellIndexes.contains(lastOpenCellIndexPath!) {
-                            let lastOpenCell = self.cafeTableView.cellForRowAtIndexPath(lastOpenCellIndexPath!) as! CafeTableViewCell
+                            let lastOpenCell = self.cafeTableView.cellForRow(at: lastOpenCellIndexPath!) as! CafeTableViewCell
                             cellHeights[lastOpenCellIndexPath!.row] = kCloseCellHeight
                             lastOpenCell.selectedAnimation(false, animated: true, completion: nil)
                             duration = 0.8
@@ -153,13 +153,13 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
                     duration = 0.8
                 }
                 
-                UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
+                UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { () -> Void in
                     self.cafeTableView.beginUpdates()
                     self.cafeTableView.endUpdates()
                     }, completion: nil)
         }
     
-        func getDistanceText(length:Int32) -> String {
+        func getDistanceText(_ length:Int32) -> String {
             return length < 1000 ? "Distance: \(length) m" : NSString(format: "Distance: %.2f km", Float32(length)/1000) as String
         }
 

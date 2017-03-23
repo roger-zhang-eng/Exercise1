@@ -16,11 +16,11 @@ public protocol CafeListViewModelDelegate: class {
 
 //Cafe ViewController update delegate
 public protocol ViewModelForViewControllerDelegate: class {
-    func updateMapButton(status: Bool)
-    func updateNavTitle(name: String)
+    func updateMapButton(_ status: Bool)
+    func updateNavTitle(_ name: String)
 }
 
-public class CafeListViewModel: LocationCaptureDelegate, FSCafeDataDelegate {
+open class CafeListViewModel: LocationCaptureDelegate, FSCafeDataDelegate {
     var userCurrentPosition: UserPosition = UserPosition()
     var webServiceData: FSCafeData = FSCafeData()
     //var currentLocation: CLLocationCoordinate2D?
@@ -35,14 +35,14 @@ public class CafeListViewModel: LocationCaptureDelegate, FSCafeDataDelegate {
     func loadCafeShopsData()  {
         
         //Indicate current operation
-        SVProgressHUD.showWithStatus("Detecting current location...")
+        SVProgressHUD.show(withStatus: "Detecting current location...")
   
         self.userCurrentPosition.starUpdateingLocation()
     }
     
     
     //Mark: LocationCaptureDelegate for update current location data
-    public func updateCurrentLocationData(position:CLLocationCoordinate2D) {
+    open func updateCurrentLocationData(_ position:CLLocationCoordinate2D) {
         CurrentSpot.shared.geoLocation = position
         
         let centreLocationText = "\(position.latitude.description),\(position.longitude.description)"
@@ -56,18 +56,18 @@ public class CafeListViewModel: LocationCaptureDelegate, FSCafeDataDelegate {
         }
         
         //Indicate current operation
-        SVProgressHUD.showWithStatus("Detecting nearby Cafe Shops...")
+        SVProgressHUD.show(withStatus: "Detecting nearby Cafe Shops...")
         self.webServiceData.loadVenues(centreLocationText)
     }
     
-    public func updateCurrentLocationName(name: String) {
+    open func updateCurrentLocationName(_ name: String) {
         print("Current location name: \(name)")
         self.cafeViewControllerDeleage?.updateNavTitle(name)
     }
     
     
     //Mark: ViewModelForViewControllerDelegate
-    public func updateCafeShotItems() {
+    open func updateCafeShotItems() {
         self.cafeListDelegate?.updateCafeTableView()
         self.cafeViewControllerDeleage?.updateMapButton(true)
         

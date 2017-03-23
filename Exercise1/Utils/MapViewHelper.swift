@@ -73,7 +73,7 @@ class MapViewHelper : NSObject, MKMapViewDelegate {
         
     }
 
-    func drawMapView(centerPosition:CLLocationCoordinate2D,fixScopeDelta:Bool, deltaLat:CLLocationDegrees?, deltaLng:CLLocationDegrees?) {
+    func drawMapView(_ centerPosition:CLLocationCoordinate2D,fixScopeDelta:Bool, deltaLat:CLLocationDegrees?, deltaLng:CLLocationDegrees?) {
         //set MapKit necessary information
         var theRegion: MKCoordinateRegion?
         if(fixScopeDelta) {
@@ -93,11 +93,11 @@ class MapViewHelper : NSObject, MKMapViewDelegate {
         print("In drawMapView finish draw setting --->")
     }
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let displayAnnotation = annotation as! MKPointAnnotation
         if displayAnnotation == self.userAnnotation {
-            var pin = self.map.dequeueReusableAnnotationViewWithIdentifier("UserPin")
+            var pin = self.map.dequeueReusableAnnotationView(withIdentifier: "UserPin")
             if(pin == nil) {
                 pin = MKAnnotationView(annotation: annotation, reuseIdentifier: "UserPin")
                 let icon = UIImage(named: "userLocation")
@@ -107,7 +107,7 @@ class MapViewHelper : NSObject, MKMapViewDelegate {
             return pin
         } else {
         
-            var pin = self.map.dequeueReusableAnnotationViewWithIdentifier("CafePin")
+            var pin = self.map.dequeueReusableAnnotationView(withIdentifier: "CafePin")
             if(pin == nil) {
                 pin = MKAnnotationView(annotation: annotation, reuseIdentifier: "CafePin")
                 let icon = UIImage(named: "hightLightCafe")
@@ -119,7 +119,7 @@ class MapViewHelper : NSObject, MKMapViewDelegate {
 
     }
     
-    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         print("In mapView didUpdateUserLocation: \(userLocation.coordinate.latitude),\(userLocation.coordinate.longitude)")
         
         

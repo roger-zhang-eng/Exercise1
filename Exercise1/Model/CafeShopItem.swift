@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class CafeShopItem: FSVenue {
     var cafeShopMap: UIImage?

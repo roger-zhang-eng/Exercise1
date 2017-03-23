@@ -42,17 +42,17 @@ class CafeListViewModelTests: XCTestCase, CafeListViewModelDelegate, ViewModelFo
         
         self.cafeListViewModelTest.loadCafeShopsData()
         
-        let expectation = self.expectationWithDescription("Sydney Location Test")
+        let expectation = self.expectation(description: "Sydney Location Test")
         
         //dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC))
         let delayTime:Int64 =  Int64(5 * Double(NSEC_PER_SEC))
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delayTime), dispatch_get_main_queue(), {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(delayTime) / Double(NSEC_PER_SEC), execute: {
             print("print CurrentSpot cityName \(CurrentSpot.shared.cityName)")
             XCTAssertTrue(CurrentSpot.shared.cityName == "Sydney")
             expectation.fulfill()
         })
         
-        self.waitForExpectationsWithTimeout(8.0, handler: nil)
+        self.waitForExpectations(timeout: 8.0, handler: nil)
         
     }
     
@@ -61,11 +61,11 @@ class CafeListViewModelTests: XCTestCase, CafeListViewModelDelegate, ViewModelFo
         print("In updateCafeTableView.")
     }
     
-    func updateMapButton(status: Bool) {
+    func updateMapButton(_ status: Bool) {
         print("In updateMapButton: status \(status)")
     }
     
-    func updateNavTitle(name: String) {
+    func updateNavTitle(_ name: String) {
         print("In updateNavTitle: name \(name)")
     }
 

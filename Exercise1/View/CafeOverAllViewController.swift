@@ -11,7 +11,7 @@ import MapKit
 
 class CafeOverAllViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
-    private var mapViewHelper: MapViewHelper?
+    fileprivate var mapViewHelper: MapViewHelper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class CafeOverAllViewController: UIViewController {
     }
     
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.bindMapView()
     }
 

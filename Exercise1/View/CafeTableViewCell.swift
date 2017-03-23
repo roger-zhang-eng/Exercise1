@@ -39,7 +39,7 @@ class CafeTableViewCell: FoldingCell {
         
             //let yOffset = self.containerView.frame.size.height - 110
             let width = self.containerView.frame.size.width - 20
-            let shopMapViewFrame = CGRectMake(10, 110, width, 335)
+            let shopMapViewFrame = CGRect(x: 10, y: 110, width: width, height: 335)
             //ShopMapViewInst.shared.shopMapView.frame = shopMapViewFrame
             
             Utilities.takeSnapshot(self.cellRowIndex!, size: shopMapViewFrame.size, withCallback:{ (image, error) -> Void in
@@ -53,18 +53,18 @@ class CafeTableViewCell: FoldingCell {
         }
     }
     
-    override func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval {
+    override func animationDuration(_ itemIndex:NSInteger, type:AnimationType)-> TimeInterval {
         
         let durations = [0.16, 0.1, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1, 0.1, 0.2, 0.2]
         return durations[itemIndex]
     }
     
-    func updateForegroundView(cafeName: String, distance:String?) {
+    func updateForegroundView(_ cafeName: String, distance:String?) {
         self.upCafeName.text = cafeName
         self.upDistance.text = distance
     }
     
-    func updateDownView(index: Int, cafeName: String, checkinCount: String?, phone: String?, address: String?) {
+    func updateDownView(_ index: Int, cafeName: String, checkinCount: String?, phone: String?, address: String?) {
         self.cellRowIndex = index
         self.downCafeName.text = cafeName
         self.downCheckin.text = checkinCount

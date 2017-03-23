@@ -15,28 +15,28 @@ class Utilities {
     //Define singleton instance.
     //static let shared = CurrentSpot()
     
-    private static let formatterForUI: NSDateFormatter = {
-        let formatter = NSDateFormatter()
+    fileprivate static let formatterForUI: DateFormatter = {
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd 'at' h:m a"
         return formatter
     }()
     
-    private static let formatterForFS: NSDateFormatter = {
-        let formatter = NSDateFormatter()
+    fileprivate static let formatterForFS: DateFormatter = {
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
         return formatter
     }()
     
-    class func getUIDateString(date: NSDate) -> String {
-        return Utilities.formatterForUI.stringFromDate(date)
+    class func getUIDateString(_ date: Date) -> String {
+        return Utilities.formatterForUI.string(from: date)
     }
     
     class func getFSCurrentDateString() -> String {
-        return Utilities.formatterForFS.stringFromDate(NSDate())
+        return Utilities.formatterForFS.string(from: Date())
     }
     
     // Takes a snapshot and calls back with the generated UIImage
-    static func takeSnapshot(cafeShopIndex: Int,size: CGSize,withCallback: (UIImage?, NSError?) -> ()) {
+    static func takeSnapshot(_ cafeShopIndex: Int,size: CGSize,withCallback: @escaping (UIImage?, NSError?) -> ()) {
         
         let shopLocation = ShopList.shared.items[cafeShopIndex].location!
         let centrePoint = CLLocationCoordinate2DMake(shopLocation.lat!.doubleValue,shopLocation.lng!.doubleValue)
@@ -47,26 +47,27 @@ class Utilities {
         let options = MKMapSnapshotOptions()
         options.region = theRegion
         options.size = size
-        options.scale = UIScreen.mainScreen().scale
+        options.scale = UIScreen.main.scale
         
         let snapshotter = MKMapSnapshotter(options: options)
-        snapshotter.startWithCompletionHandler() { snapshot, error in
+        
+        snapshotter.start(completionHandler: { snapshot, error in
             guard snapshot != nil else {
-                withCallback(nil, error)
+                withCallback(nil, error as NSError?)
                 return
             }
             
             let image = snapshot!.image
-            let finalImageRect = CGRectMake(0, 0, image.size.width, image.size.height)
+            let finalImageRect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
             let pinImage = UIImage(named: "cafe")
             
             //start to create our final image
             UIGraphicsBeginImageContextWithOptions(image.size, true, image.scale);
-            image.drawAtPoint(CGPointZero)
-            let point = CGPointMake(image.size.width/2, image.size.height/2)
+            image.draw(at: CGPoint.zero)
+            let point = CGPoint(x: image.size.width/2, y: image.size.height/2)
             
-            if CGRectContainsPoint(finalImageRect, point) {
-                pinImage!.drawAtPoint(point)
+            if finalImageRect.contains(point) {
+                pinImage!.draw(at: point)
             }
             
             let finalImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -75,7 +76,7 @@ class Utilities {
             
             
             withCallback(finalImage, nil)
-        }
+        })
     }
         
 }
