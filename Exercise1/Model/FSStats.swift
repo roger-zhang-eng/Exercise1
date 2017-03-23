@@ -7,9 +7,24 @@
 //
 
 import Foundation
+import Gloss
 
-class FSStats: NSObject {
-    var checkinsCount: NSNumber?
-    var usersCount: NSNumber?
-    var tipCount: NSNumber?
+protocol FSStatsModel {
+    var checkinsCount: Int? { get }
+    var usersCount: Int? { get }
+    var tipCount: Int? { get }
+}
+
+struct FSStats: FSStatsModel {
+    let checkinsCount: Int?
+    let usersCount: Int?
+    let tipCount: Int?
+}
+
+extension FSStats: Decodable {
+    init?(json: JSON) {
+        self.checkinsCount = "checkinsCount" <~~ json
+        self.usersCount = "usersCount" <~~ json
+        self.tipCount = "tipCount" <~~ json
+    }
 }

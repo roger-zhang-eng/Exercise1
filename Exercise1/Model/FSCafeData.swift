@@ -7,6 +7,19 @@
 //
 
 import Foundation
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 public protocol FSCafeDataDelegate: class {
     func updateCafeShotItems()
@@ -24,7 +37,7 @@ class FSCafeData {
     }
     
     func configureRestKit() {
-        let baseURL = NSURL(string: "https://api.foursquare.com")
+        let baseURL = URL(string: "https://api.foursquare.com")
         let client = AFHTTPClient(baseURL: baseURL)
         
         //Init RestKit
@@ -59,7 +72,7 @@ class FSCafeData {
         venueMapping.addPropertyMapping(RKRelationshipMapping(fromKeyPath: "location", toKeyPath: "location", withMapping: locationMapping))
         venueMapping.addPropertyMapping(RKRelationshipMapping(fromKeyPath: "stats", toKeyPath: "stats", withMapping: statsMapping))
         
-        let searchResponseDescriptor = RKResponseDescriptor(mapping: venueMapping, method: RKRequestMethod.GET, pathPattern: "/v2/venues/search", keyPath: "response.venues", statusCodes: NSIndexSet(index: 200))
+        let searchResponseDescriptor = RKResponseDescriptor(mapping: venueMapping, method: RKRequestMethod.GET, pathPattern: "/v2/venues/search", keyPath: "response.venues", statusCodes: IndexSet(index: 200))
         
         
         //set RestKit resp descriptor for auto data parsing
@@ -68,7 +81,7 @@ class FSCafeData {
         print("configureRestKit OK.")
     }
     
-    func loadVenues(position: String) {
+    func loadVenues(_ position: String) {
         //Get the latest date string
         let dateText = Utilities.getFSCurrentDateString()
         
@@ -102,9 +115,9 @@ class FSCafeData {
     }
     
     
-    func inOrder(p1:CafeShopItem,p2:CafeShopItem)->Bool {
+    func inOrder(_ p1:CafeShopItem,p2:CafeShopItem)->Bool {
         //According to distance, sort the array as ascend order
-        return p1.location!.distance?.integerValue < p2.location!.distance!.integerValue
+        return p1.location!.distance?.intValue < p2.location!.distance!.intValue
     }
     
 }

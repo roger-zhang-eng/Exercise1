@@ -7,10 +7,29 @@
 //
 
 import Foundation
+import Gloss
 
-class FSVenue: NSObject {
-    var name: String?
-    var contact: FSContact?
-    var location: FSLocation?
-    var stats: FSStats?
+protocol FSVenueModel {
+    var name: String? { get }
+    var contact: FSContact? { get }
+    var location: FSLocation? { get }
+    var stats: FSStats? { get }
+}
+
+struct FSVenue: FSVenueModel {
+    let name: String?
+    let contact: FSContact?
+    let location: FSLocation?
+    let stats: FSStats?
+    var verified: Bool?
+}
+
+extension FSVenue: Decodable {
+    init?(json: JSON) {
+        self.name = "name" <~~ json
+        self.contact = "contact" <~~ json
+        self.location = "location" <~~ json
+        self.stats = "stats" <~~ json
+        self.verified = "verified" <~~ json
+    }
 }

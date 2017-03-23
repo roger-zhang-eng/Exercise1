@@ -10,8 +10,8 @@ import UIKit
 
 class CafeViewController: UIViewController, ViewModelForViewControllerDelegate {
     
-    private var viewModel: CafeListViewModel!
-    private var bindingHelper: TableViewBindingHelper!
+    fileprivate var viewModel: CafeListViewModel!
+    fileprivate var bindingHelper: TableViewBindingHelper!
     
     let navBarDefaultText = "Loading..."
     
@@ -52,20 +52,20 @@ class CafeViewController: UIViewController, ViewModelForViewControllerDelegate {
     }
     
     //Mark: ViewModelForViewControllerDelegate
-    internal func updateMapButton(status: Bool) {
-            self.mapButton.enabled = status
+    internal func updateMapButton(_ status: Bool) {
+            self.mapButton.isEnabled = status
     }
     
-    internal func updateNavTitle(name: String) {
+    internal func updateNavTitle(_ name: String) {
             print("updateNavTitle update as \(name)")
             self.navigationItem.title = name
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
             self.navigationItem.title = CurrentSpot.shared.cityName
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("Push Cafe Shop Map")
     }
 

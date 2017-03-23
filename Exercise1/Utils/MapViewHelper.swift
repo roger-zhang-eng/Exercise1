@@ -34,14 +34,14 @@ class MapViewHelper : NSObject, MKMapViewDelegate {
         print("--> Begin to display mapView")
         
         shopCenterDisplay = false
-        let shopLocation = ShopList.shared.items[1].location!
+        let shopLocation = ShopList.shared.items[1].venue.location!
         
-        let deltaLat = abs(shopLocation.lat!.doubleValue - CurrentSpot.shared.geoLocation!.latitude)
-        let deltaLng = abs(shopLocation.lng!.doubleValue - CurrentSpot.shared.geoLocation!.longitude)
+        let deltaLat = abs(shopLocation.lat! - CurrentSpot.shared.geoLocation!.latitude)
+        let deltaLng = abs(shopLocation.lng! - CurrentSpot.shared.geoLocation!.longitude)
         
         if(deltaLat > fixedDelta) || (deltaLng > fixedDelta) {
-            let mapCentreLat: CLLocationDegrees = (CurrentSpot.shared.geoLocation!.latitude + shopLocation.lat!.doubleValue)/2
-            let mapCentreLng: CLLocationDegrees = (CurrentSpot.shared.geoLocation!.longitude + shopLocation.lng!.doubleValue)/2
+            let mapCentreLat: CLLocationDegrees = (CurrentSpot.shared.geoLocation!.latitude + shopLocation.lat!)/2
+            let mapCentreLng: CLLocationDegrees = (CurrentSpot.shared.geoLocation!.longitude + shopLocation.lng!)/2
             let mapCentre = CLLocationCoordinate2D(latitude: mapCentreLat, longitude: mapCentreLng)
             
             var deltaValue :CLLocationDegrees?
@@ -52,14 +52,14 @@ class MapViewHelper : NSObject, MKMapViewDelegate {
             
             drawMapView(mapCentre,fixScopeDelta: false, deltaLat: deltaValue!, deltaLng: deltaValue!)
         } else {
-            let mapCentre = CLLocationCoordinate2DMake(shopLocation.lat!.doubleValue,shopLocation.lng!.doubleValue)
+            let mapCentre = CLLocationCoordinate2DMake(shopLocation.lat!,shopLocation.lng!)
             drawMapView(mapCentre,fixScopeDelta: true, deltaLat: nil, deltaLng: nil)
         }
         
         for item in ShopList.shared.items {
             let shopAnnotation = MKPointAnnotation()
-            shopAnnotation.coordinate = CLLocationCoordinate2DMake(item.location!.lat!.doubleValue, item.location!.lng!.doubleValue)
-            shopAnnotation.title = item.name
+            shopAnnotation.coordinate = CLLocationCoordinate2DMake(item.venue.location!.lat!, item.venue.location!.lng!)
+            shopAnnotation.title = item.venue.name!
             self.map.addAnnotation(shopAnnotation)
         }
         
@@ -73,7 +73,7 @@ class MapViewHelper : NSObject, MKMapViewDelegate {
         
     }
 
-    func drawMapView(centerPosition:CLLocationCoordinate2D,fixScopeDelta:Bool, deltaLat:CLLocationDegrees?, deltaLng:CLLocationDegrees?) {
+    func drawMapView(_ centerPosition:CLLocationCoordinate2D,fixScopeDelta:Bool, deltaLat:CLLocationDegrees?, deltaLng:CLLocationDegrees?) {
         //set MapKit necessary information
         var theRegion: MKCoordinateRegion?
         if(fixScopeDelta) {
@@ -93,11 +93,11 @@ class MapViewHelper : NSObject, MKMapViewDelegate {
         print("In drawMapView finish draw setting --->")
     }
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let displayAnnotation = annotation as! MKPointAnnotation
         if displayAnnotation == self.userAnnotation {
-            var pin = self.map.dequeueReusableAnnotationViewWithIdentifier("UserPin")
+            var pin = self.map.dequeueReusableAnnotationView(withIdentifier: "UserPin")
             if(pin == nil) {
                 pin = MKAnnotationView(annotation: annotation, reuseIdentifier: "UserPin")
                 let icon = UIImage(named: "userLocation")
@@ -107,7 +107,7 @@ class MapViewHelper : NSObject, MKMapViewDelegate {
             return pin
         } else {
         
-            var pin = self.map.dequeueReusableAnnotationViewWithIdentifier("CafePin")
+            var pin = self.map.dequeueReusableAnnotationView(withIdentifier: "CafePin")
             if(pin == nil) {
                 pin = MKAnnotationView(annotation: annotation, reuseIdentifier: "CafePin")
                 let icon = UIImage(named: "hightLightCafe")
@@ -119,7 +119,7 @@ class MapViewHelper : NSObject, MKMapViewDelegate {
 
     }
     
-    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         print("In mapView didUpdateUserLocation: \(userLocation.coordinate.latitude),\(userLocation.coordinate.longitude)")
         
         

@@ -25,7 +25,7 @@ class CurrentSpot: NSObject {
         }
     }
     
-    private override init() {
+    fileprivate override init() {
         self.initiated = false
     }
     

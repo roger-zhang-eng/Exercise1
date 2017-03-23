@@ -7,10 +7,28 @@
 //
 
 import Foundation
+import Gloss
 
-class FSContact: NSObject {
-    var phone: String?
-    var formattedPhone: String?
+//Define the attribute for read-only
+protocol FSContactModel {
+    var phone: String? { get }
+    var formattedPhone: String? { get }
+    var twitter: String? { get }
+    var facebookName: String? { get }
+}
+
+struct FSContact: FSContactModel {
+    let phone: String?
+    let formattedPhone: String?
     var twitter: String?
     var facebookName: String?
+}
+
+extension FSContact: Decodable {
+    init?(json: JSON) {
+        self.phone = "phone" <~~ json
+        self.formattedPhone = "formattedPhone" <~~ json
+        self.twitter = "twitter" <~~ json
+        self.facebookName = "facebookName" <~~ json
+    }
 }

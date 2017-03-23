@@ -7,17 +7,23 @@
 //
 
 import Foundation
+import UIKit
 
-class CafeShopItem: FSVenue {
+class CafeShopItem {
+    let venue: FSVenue
     var cafeShopMap: UIImage?
     var address: String? {
         get {
-            guard let formattedAddress = super.location?.formattedAddress else {
+            guard venue.location?.address != nil else {
                 return nil
             }
             
-            return formattedAddress[0] + " " + formattedAddress[1]
+            return venue.location!.address! + " " + venue.location!.city!
         }
+    }
+    
+    init(venue: FSVenue) {
+        self.venue = venue
     }
 
 }

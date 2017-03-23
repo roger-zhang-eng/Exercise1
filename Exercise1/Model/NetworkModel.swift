@@ -7,7 +7,95 @@
 //
 
 import Foundation
+import Alamofire
 
+struct UserLocation {
+    let lat: Double
+    let long: Double
+    
+    fileprivate var locationQuery: String {
+        return [lat, long]
+            .map { String(describing: $0) }
+            .joined(separator: ",")
+    }
+}
+
+enum Error: Swift.Error {
+    case invalidURL
+    case failedJSONParsing
+    case networkFailure
+}
+
+class NetworkModel {
+
+    static let sharedInstance = NetworkModel()
+    
+    let scheme = "https"
+    let host = "api.foursquare.com"
+    let path = "/v2/venues/search"
+    let clientID = "ACAO2JPKM1MXHQJCK45IIFKRFR2ZVL0QASMCBCG5NPJQWF2G"
+    let clientSecret = "YZCKUYJ1WHUV2QICBXUBEILZI1DMPUIDP5SHV043O04FKBHL"
+    let categoryID = "4bf58dd8d48988d1e0931735,4bf58dd8d48988d16d941735"
+    
+    //static let clientIDQueryItem = URLQueryItem(name: "client_id", value: "ACAO2JPKM1MXHQJCK45IIFKRFR2ZVL0QASMCBCG5NPJQWF2G")
+    //static let clientSecretQueryItem = URLQueryItem(name: "client_secret", value: "YZCKUYJ1WHUV2QICBXUBEILZI1DMPUIDP5SHV043O04FKBHL")
+    
+    
+    //static let versionQueryItem = URLQueryItem(name: "v", value: "20170320")
+    //static let coffeeQueryItem = URLQueryItem(name: "categoryId", value: "4bf58dd8d48988d1e0931735")
+    
+    private func url() -> URL? {
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.path = path
+        
+        return components.url
+    }
+    
+    func networkConnectRequest(_ location: UserLocation) -> DataRequest?
+    {
+        //Get the latest date string
+        let dateText = Utilities.getFSCurrentDateString()
+        let urlText = self.url()!.absoluteString
+        let headers : [String : String] = [
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "client_id": clientID,
+            "client_secret": clientSecret,
+            "v": dateText,
+            "categoryId": categoryID,
+            "ll": location.locationQuery
+        ]
+        
+        return Alamofire.request(urlText, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+        
+    }
+    
+    func loadVenues(_ position: UserLocation, completion: @escaping (Result<[FSVenue], Error>) -> ()) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        let request = networkConnectRequest(position)
+        request?.validate()
+            .responseJSON(completionHandler: { response in
+                switch response.result {
+                case .success:
+                    if let value = response.result.value as? [String: Any], let fsResponse = value["response"] as? [String: Any], let fsVenues = fsResponse["venues"] as? [[String: Any]], let fsvenues = [FSVenue].from(jsonArray: fsVenues) {
+                        completion(Result.success(fsvenues))
+                    } else {
+                        completion(Result.failure(.failedJSONParsing))
+                    }
+                    
+                case .failure(let error):
+                    print("load Venues error: \(error.localizedDescription)")
+                    completion(Result.failure(.networkFailure))
+                }
+                
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            })
+    }
+
+}
 
 
 /*

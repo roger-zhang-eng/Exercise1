@@ -10,8 +10,8 @@ import CoreLocation
 import Foundation
 
 public protocol LocationCaptureDelegate: class {
-    func updateCurrentLocationData(position:CLLocationCoordinate2D) ->()
-    func updateCurrentLocationName(name: String) -> ()
+    func updateCurrentLocationData(_ position:CLLocationCoordinate2D) ->()
+    func updateCurrentLocationName(_ name: String) -> ()
 }
 
 class UserPosition: NSObject, CLLocationManagerDelegate {
@@ -33,9 +33,9 @@ class UserPosition: NSObject, CLLocationManagerDelegate {
     }
     
     //MARK: CLLocationManagerDelegate function
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
-        if status == CLAuthorizationStatus.AuthorizedWhenInUse {
+        if status == CLAuthorizationStatus.authorizedWhenInUse {
             print("The location authentication is allowed!")
         } else {
             print("The location is not allowed!")
@@ -43,7 +43,7 @@ class UserPosition: NSObject, CLLocationManagerDelegate {
         
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Location Update get data")
         
         //Get location update time
@@ -63,11 +63,11 @@ class UserPosition: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("Error while updating location \(error.description)")
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error while updating location \(error.localizedDescription)")
     }
     
-    func getLocationName(location: CLLocation) {
+    func getLocationName(_ location: CLLocation) {
         
         //CLGeocoder.reverseGeocodeLocation(location)
         
@@ -101,7 +101,7 @@ class UserPosition: NSObject, CLLocationManagerDelegate {
         })
     }
 
-    func displayLocationInfo(placemark: CLPlacemark) {
+    func displayLocationInfo(_ placemark: CLPlacemark) {
         
             print(placemark.locality != nil ? placemark.locality : "")
             print(placemark.postalCode != nil  ? placemark.postalCode : "")
