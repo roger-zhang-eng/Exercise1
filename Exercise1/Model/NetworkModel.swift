@@ -66,7 +66,8 @@ class NetworkModel {
             "client_id": clientID,
             "client_secret": clientSecret,
             "v": dateText,
-            "categoryId": categoryID,
+            //"categoryId": categoryID,
+            "query": "coffee",
             "ll": location.locationQuery
         ]
         
