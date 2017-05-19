@@ -10,6 +10,8 @@ def common
     pod 'Alamofire', '4.3.0'
     pod 'FoldingCell' , '~> 2.0.3'  # TableViewCell foldabal effect  https://github.com/Ramotion/folding-cell
     pod 'Gloss' , '~> 1.2' #JSON decode, better than SwiftJSON
+    pod 'ReactiveSwift', '~> 1.1'
+    pod 'ReactiveCocoa', '~> 5.0'
 end
 
 target 'Exercise1' do

@@ -2,20 +2,30 @@ PODS:
   - Alamofire (4.3.0)
   - FoldingCell (2.0.3)
   - Gloss (1.2.1)
+  - ReactiveCocoa (5.0.3):
+    - ReactiveSwift (~> 1.1)
+  - ReactiveSwift (1.1.1):
+    - Result (~> 3.2)
+  - Result (3.2.1)
   - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
   - Alamofire (= 4.3.0)
   - FoldingCell (~> 2.0.3)
   - Gloss (~> 1.2)
+  - ReactiveCocoa (~> 5.0)
+  - ReactiveSwift (~> 1.1)
   - SVProgressHUD (~> 2.0.3)
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   FoldingCell: 2f3113051609167776743415fc00ed877ac6d62c
   Gloss: 9ab33b8ede01e4232571d43a6bf9259b85d1de69
+  ReactiveCocoa: 066a855f613fb72f68258771095805fdb10312d2
+  ReactiveSwift: 2489549e3231a6ff68ec99f3d320bb264f10ba0a
+  Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: 36e628947337f9dc1e12dc648ab1488fcac49f1d
+PODFILE CHECKSUM: 7d9785754d79655a18f4420c300c4674b1cbb3ad
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1
