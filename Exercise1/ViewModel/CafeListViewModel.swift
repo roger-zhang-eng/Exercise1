@@ -8,6 +8,7 @@
 import CoreLocation
 import Foundation
 import SVProgressHUD
+import ReactiveSwift
 
 //TableView Update delegate
 public protocol CafeListViewModelDelegate: class {
@@ -27,8 +28,12 @@ class CafeListViewModel: LocationCaptureDelegate {
     
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    private let userPositionInst: UserPosition
+    let svprogressShow = MutableProperty<Bool>(false)
+    
     init() {
-        appDelegate.userCurrentPosition.locationDelegate = self
+        //appDelegate.userCurrentPosition.locationDelegate = self
+        self.userPositionInst = UserPosition()
     }
     
     func loadCafeShopsData()  {
@@ -36,7 +41,7 @@ class CafeListViewModel: LocationCaptureDelegate {
         //Indicate current operation
         SVProgressHUD.show(withStatus: "Detecting current location...")
   
-        appDelegate.userCurrentPosition.starUpdateingLocation()
+        //appDelegate.userCurrentPosition.starUpdateingLocation()
     }
     
     

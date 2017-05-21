@@ -62,7 +62,7 @@ class CafeViewController: UIViewController, ViewModelForViewControllerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-            self.navigationItem.title = CurrentSpot.shared.cityName
+            //self.navigationItem.title = CurrentSpot.shared.cityName
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

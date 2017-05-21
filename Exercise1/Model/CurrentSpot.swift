@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import ReactiveSwift
 
 class CurrentSpot: NSObject {
     //Define singleton instance.
@@ -15,7 +16,7 @@ class CurrentSpot: NSObject {
     
     var initiated: Bool
     
-    var cityName: String = "Loading..."
+    let cityName  = MutableProperty<String>("Loading...")
     
     var geoLocation: CLLocationCoordinate2D? {
         didSet {

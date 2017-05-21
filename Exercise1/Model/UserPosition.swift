@@ -8,6 +8,7 @@
 
 import CoreLocation
 import Foundation
+import ReactiveSwift
 
 public protocol LocationCaptureDelegate: class {
     func updateCurrentLocationData(_ position:CLLocationCoordinate2D) ->()
@@ -16,18 +17,29 @@ public protocol LocationCaptureDelegate: class {
 
 class UserPosition: NSObject, CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
-    weak var locationDelegate:LocationCaptureDelegate?
+    
+    let currentLocation: MutableProperty<CLLocation?>
     
     override init() {
-        super.init()
+        
         //Initate Location instance
-        locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters    //kCLLocationAccuracyBest
         locationManager.distanceFilter = 100
+        currentLocation = MutableProperty(nil)
+        
+        super.init()
+        
+        locationManager.delegate = self
+        
+        self.starUpdateingLocation()
     }
     
-    func starUpdateingLocation() {
+    deinit {
+        debugPrint("UserPosition deinit.")
+    }
+    
+    private func starUpdateingLocation() {
         print("In UserPosition: starUpdateingLocation")
         locationManager.startUpdatingLocation()
     }
@@ -57,17 +69,20 @@ class UserPosition: NSObject, CLLocationManagerDelegate {
             print("In didUpdateLocations: Locaion: Latitude \(latestLoc.coordinate.latitude.description), Longtitude \(latestLoc.coordinate.longitude.description)")
             
             //update current location
-            self.locationDelegate?.updateCurrentLocationData(latestLoc.coordinate)
+            
+            self.currentLocation.value = latestLoc
+            self.getLocationName(latestLoc)
+            //self.locationDelegate?.updateCurrentLocationData(latestLoc.coordinate)
         } else {
             print("In didUpdateLocations: The got location address is too old!")
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    private func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error while updating location \(error.localizedDescription)")
     }
     
-    func getLocationName(_ location: CLLocation) {
+    private func getLocationName(_ location: CLLocation) {
         
         //CLGeocoder.reverseGeocodeLocation(location)
         
@@ -91,8 +106,8 @@ class UserPosition: NSObject, CLLocationManagerDelegate {
                 if pm.locality != nil {
                     locationName = pm.locality!
                 }
-                CurrentSpot.shared.cityName = locationName
-                self.locationDelegate?.updateCurrentLocationName(locationName)
+                CurrentSpot.shared.cityName.value = locationName
+                //self.locationDelegate?.updateCurrentLocationName(locationName)
                 self.displayLocationInfo(pm)
             } else {
                 print("Problem with the data received from geocoder")
